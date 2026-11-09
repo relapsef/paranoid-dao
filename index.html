@@ -86,6 +86,10 @@
   </section>
 
   <section class="section section--invert" id="services">
+    <div class="planet" aria-hidden="true">
+      <div class="planet__ring"></div>
+      <div class="planet__orb"><div class="planet__spin"></div></div>
+    </div>
     <div class="container">
       <p class="section__label" data-i18n="services.label">02 / Услуги</p>
       <h2 class="section__title" data-i18n="services.title">Что делаем</h2>
@@ -341,6 +345,18 @@
     .map(a => document.querySelector(a.getAttribute('href')))
     .filter(Boolean);
 
+  // Планета у секции услуг: оборот зависит от скролла.
+  const servicesSection = document.getElementById('services');
+  const planetSpin = document.querySelector('.planet__spin');
+
+  const updatePlanet = () => {
+    if (!servicesSection || !planetSpin) return;
+    const r = servicesSection.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const progress = Math.min(Math.max((vh - r.top) / (r.height + vh), 0), 1);
+    planetSpin.style.transform = 'rotate(' + (progress * 360) + 'deg)';
+  };
+
   const onScroll = () => {
     const y = window.scrollY + 120;
     let current = sections[0];
@@ -350,9 +366,11 @@
     links.forEach(a => {
       a.style.opacity = a.getAttribute('href') === '#' + current.id ? '1' : '0.5';
     });
+    updatePlanet();
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', updatePlanet);
   onScroll();
 
   // Анимированный фон hero: частицы и связи между ними.
