@@ -189,7 +189,11 @@ body {
 }
 
 /* ---------- Sections ---------- */
-.section { padding: 120px 0; }
+.section {
+  padding: 120px 0;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
 .section--invert {
   background: #000;
   border-top: 1px solid var(--line);
