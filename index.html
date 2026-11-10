@@ -55,7 +55,7 @@
       <div class="hero__stats">
         <div class="stat"><span class="stat__num">250+</span><span class="stat__label" data-i18n="stat.communities">комьюнити</span></div>
         <div class="stat"><span class="stat__num">TG / X / YT</span><span class="stat__label" data-i18n="stat.platforms">площадки</span></div>
-        <div class="stat"><span class="stat__num">Web3 / AI</span><span class="stat__label" data-i18n="stat.focus">фокус</span></div>
+        <div class="stat"><span class="stat__num" data-i18n="stat.focusNum">Крипто / AI</span><span class="stat__label" data-i18n="stat.focus">фокус</span></div>
       </div>
     </div>
     <div class="hero__marquee" aria-hidden="true">
@@ -212,6 +212,7 @@
     "stat.communities": "communities",
     "stat.platforms": "platforms",
     "stat.focus": "focus",
+    "stat.focusNum": "Crypto / AI",
     "marquee": "ADS / SEEDING / CREATIVE / MEDIA PLAN / TRAFFIC / ANALYTICS / ",
 
     "about.label": "01 / About",
@@ -336,6 +337,17 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', updatePlanet);
   onScroll();
+
+  // Якорные ссылки: скролл без # в URL.
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', location.pathname);
+    });
+  });
 
   // Анимированный фон hero: частицы и связи между ними.
   const canvas = document.getElementById('heroCanvas');

@@ -189,6 +189,7 @@ body {
 }
 
 /* ---------- Sections ---------- */
+section[id] { scroll-margin-top: 70px; }
 .section {
   position: relative;
   padding: 120px 0;
