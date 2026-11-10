@@ -137,7 +137,9 @@ body {
   letter-spacing: -0.02em;
   text-transform: uppercase;
   margin-bottom: 32px;
+  text-shadow: 0 0 50px rgba(143,143,143,0.14);
 }
+.dim { color: var(--muted); }
 .hero__text {
   max-width: 560px;
   font-size: 18px;
@@ -268,6 +270,7 @@ section[id] { scroll-margin-top: 70px; }
   text-transform: uppercase;
   letter-spacing: -0.02em;
   margin-bottom: 56px;
+  text-shadow: 0 0 50px rgba(143,143,143,0.12);
 }
 
 /* ---------- About ---------- */
