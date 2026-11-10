@@ -137,9 +137,7 @@ body {
   letter-spacing: -0.02em;
   text-transform: uppercase;
   margin-bottom: 32px;
-  text-shadow: 0 0 50px rgba(143,143,143,0.14);
 }
-.dim { color: var(--muted); }
 .hero__text {
   max-width: 560px;
   font-size: 18px;
@@ -270,7 +268,15 @@ section[id] { scroll-margin-top: 70px; }
   text-transform: uppercase;
   letter-spacing: -0.02em;
   margin-bottom: 56px;
-  text-shadow: 0 0 50px rgba(143,143,143,0.12);
+}
+
+/* Мягкая тень снизу заголовков: светлый верх, чуть темнее низ */
+.hero__title,
+.section__title,
+.service h3,
+.case__body h3,
+.dao__item h3 {
+  text-shadow: 0 2px 0 rgba(0,0,0,0.3), 0 14px 34px rgba(0,0,0,0.16);
 }
 
 /* ---------- About ---------- */
