@@ -25,7 +25,7 @@ html[data-theme="light"] {
   --text-dim: #3f3f3b;
   --text-soft: #5c5c57;
   --muted: #7d7d74;
-  --line: #dcdad2;
+  --line: #b5b3a6;
   --header-bg: rgba(245,245,240,0.85);
   --invert-bg: #ffffff;
   --thumb-a: #ecebe6;
@@ -465,6 +465,16 @@ html[data-theme="light"] .planet__spin {
 }
 .dao__item p { font-size: 14px; color: var(--text-soft); }
 .dao__links { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* В светлой теме карточки должны читаться на кремовом фоне */
+html[data-theme="light"] .service,
+html[data-theme="light"] .case,
+html[data-theme="light"] .dao__item {
+  box-shadow: 0 1px 2px rgba(20,20,16,0.06), 0 8px 24px rgba(20,20,16,0.05);
+}
+html[data-theme="light"] .service:hover {
+  box-shadow: 0 2px 4px rgba(20,20,16,0.08), 0 12px 32px rgba(20,20,16,0.08);
+}
 
 /* ---------- Contact ---------- */
 .contact { text-align: center; }
