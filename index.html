@@ -28,6 +28,7 @@
         <a href="#about" data-i18n="nav.about">О нас</a>
         <a href="#services" data-i18n="nav.services">Услуги</a>
         <a href="#cases" data-i18n="nav.cases">Кейсы</a>
+        <a href="communities.html" data-i18n="nav.network">Сеть</a>
         <a href="#process" data-i18n="nav.process">Как работаем</a>
         <a href="#contact" data-i18n="nav.contact">Контакты</a>
       </nav>
@@ -208,6 +209,7 @@
     "nav.about": "About",
     "nav.services": "Services",
     "nav.cases": "Cases",
+    "nav.network": "Network",
     "nav.process": "How we work",
     "nav.contact": "Contact",
     "btn.contact": "Get in touch",
@@ -318,7 +320,7 @@
   setLang(savedLang);
 
   // Подсветка активного пункта меню при скролле.
-  const links = document.querySelectorAll('.nav a');
+  const links = document.querySelectorAll('.nav a[href^="#"]');
   const sections = [...links]
     .map(a => document.querySelector(a.getAttribute('href')))
     .filter(Boolean);
