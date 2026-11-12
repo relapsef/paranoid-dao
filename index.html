@@ -276,6 +276,9 @@
     return [el, entries];
   }));
 
+  // Цвет частиц берется из CSS-переменной --particle-rgb (зависит от темы).
+  let particleRGB = '255,255,255';
+
   const langToggle = document.getElementById('langToggle');
   const marqueeSpans = document.querySelectorAll('.marquee__track span');
   const ruMarquee = marqueeSpans[0] ? marqueeSpans[0].textContent : '';
@@ -466,7 +469,6 @@
 
   // Переключение темы.
   const themeToggle = document.getElementById('themeToggle');
-  let particleRGB = '255,255,255';
 
   function applyTheme(t) {
     if (t === 'light') document.documentElement.dataset.theme = 'light';
