@@ -1,9 +1,39 @@
 :root {
   --bg: #0b0b0b;
   --panel: #141414;
+  --panel-hover: #1a1a1a;
   --text: #f0f0ea;
+  --text-dim: #b5b5b0;
+  --text-soft: #999;
   --muted: #8f8f8f;
   --line: #232323;
+  --header-bg: rgba(11, 11, 11, 0.82);
+  --invert-bg: #000;
+  --thumb-a: #171717;
+  --thumb-b: #1c1c1c;
+  --thumb-label: rgba(255,255,255,0.04);
+  --planet-bg: #e6e6e0;
+  --planet-ring: rgba(240,240,234,0.4);
+  --particle-rgb: 255,255,255;
+}
+
+html[data-theme="light"] {
+  --bg: #f5f5f0;
+  --panel: #ffffff;
+  --panel-hover: #efeee8;
+  --text: #161615;
+  --text-dim: #3f3f3b;
+  --text-soft: #5c5c57;
+  --muted: #7d7d74;
+  --line: #dcdad2;
+  --header-bg: rgba(245,245,240,0.85);
+  --invert-bg: #ffffff;
+  --thumb-a: #ecebe6;
+  --thumb-b: #e3e2da;
+  --thumb-label: rgba(0,0,0,0.05);
+  --planet-bg: #1e1e1c;
+  --planet-ring: rgba(20,20,18,0.4);
+  --particle-rgb: 15,15,15;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,7 +59,7 @@ body {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(11, 11, 11, 0.82);
+  background: var(--header-bg);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -60,6 +90,26 @@ body {
   background: var(--text);
   color: var(--bg);
 }
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--text);
+  color: var(--text);
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.theme-toggle:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-icon--sun { display: none; }
+html[data-theme="light"] .theme-icon--moon { display: none; }
+html[data-theme="light"] .theme-icon--sun { display: block; }
 .logo {
   font-weight: 900;
   font-size: 18px;
@@ -141,7 +191,7 @@ body {
 .hero__text {
   max-width: 560px;
   font-size: 18px;
-  color: #b5b5b0;
+  color: var(--text-dim);
   margin-bottom: 40px;
 }
 .hero__actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 64px; }
@@ -213,9 +263,9 @@ section[id] { scroll-margin-top: 70px; }
   position: absolute;
   inset: 50px;
   border-radius: 50%;
-  background: #ededE8;
+  background: var(--planet-bg);
   overflow: hidden;
-  border: 1px solid rgba(240,240,234,0.4);
+  border: 1px solid var(--planet-ring);
   box-shadow: 0 0 80px rgba(255,255,255,0.06);
 }
 .planet__spin {
@@ -241,8 +291,20 @@ section[id] { scroll-margin-top: 70px; }
   width: 390px;
   height: 135px;
   transform: translate(-50%, -50%) rotate(-18deg);
-  border: 4px solid rgba(240,240,234,0.4);
+  border: 4px solid var(--planet-ring);
   border-radius: 50%;
+}
+html[data-theme="light"] .planet__spin {
+  background:
+    radial-gradient(ellipse 60% 18% at 50% 22%, rgba(255,255,255,0.08), transparent 70%),
+    radial-gradient(ellipse 60% 18% at 50% 78%, rgba(255,255,255,0.08), transparent 70%),
+    radial-gradient(circle at 32% 34%, rgba(255,255,255,0.20) 0 15%, transparent 16%),
+    radial-gradient(circle at 63% 58%, rgba(255,255,255,0.18) 0 12%, transparent 13%),
+    radial-gradient(circle at 47% 74%, rgba(255,255,255,0.16) 0 10%, transparent 11%),
+    radial-gradient(circle at 71% 24%, rgba(255,255,255,0.12) 0 8%, transparent 9%),
+    radial-gradient(circle at 21% 63%, rgba(255,255,255,0.14) 0 9%, transparent 10%),
+    radial-gradient(circle at 55% 42%, rgba(255,255,255,0.10) 0 7%, transparent 8%),
+    linear-gradient(180deg, rgba(255,255,255,0.30), rgba(0,0,0,0.20));
 }
 @media (max-width: 1100px) {
   .planet { right: -140px; }
@@ -251,7 +313,7 @@ section[id] { scroll-margin-top: 70px; }
   .planet { display: none; }
 }
 .section--invert {
-  background: #000;
+  background: var(--invert-bg);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -285,7 +347,7 @@ section[id] { scroll-margin-top: 70px; }
   grid-template-columns: 1fr 1fr;
   gap: 48px;
 }
-.about__grid p { font-size: 17px; color: #b5b5b0; }
+.about__grid p { font-size: 17px; color: var(--text-dim); }
 
 /* ---------- Services ---------- */
 .services__grid {
@@ -300,7 +362,7 @@ section[id] { scroll-margin-top: 70px; }
   padding: 40px 32px;
   transition: background .3s ease;
 }
-.service:hover { background: #1a1a1a; }
+.service:hover { background: var(--panel-hover); }
 .service__num {
   font-family: "Courier New", monospace;
   font-size: 13px;
@@ -313,7 +375,7 @@ section[id] { scroll-margin-top: 70px; }
   letter-spacing: 0.02em;
   margin: 16px 0 12px;
 }
-.service p { font-size: 15px; color: #999; }
+.service p { font-size: 15px; color: var(--text-soft); }
 
 /* ---------- Cases ---------- */
 .cases__grid {
@@ -337,7 +399,7 @@ section[id] { scroll-margin-top: 70px; }
   justify-content: center;
   border-bottom: 1px solid var(--line);
   background:
-    repeating-linear-gradient(45deg, #171717 0 12px, #1c1c1c 12px 24px);
+    repeating-linear-gradient(45deg, var(--thumb-a) 0 12px, var(--thumb-b) 12px 24px);
 }
 .case__thumb span {
   font-size: 12px;
@@ -346,7 +408,7 @@ section[id] { scroll-margin-top: 70px; }
   color: var(--muted);
   border: 1px dashed var(--muted);
   padding: 6px 14px;
-  background: rgba(255,255,255,0.04);
+  background: var(--thumb-label);
 }
 .case__thumb--img {
   display: block;
@@ -372,7 +434,7 @@ section[id] { scroll-margin-top: 70px; }
   margin-bottom: 10px;
 }
 .case__body h3 { font-size: 24px; font-weight: 800; text-transform: uppercase; }
-.case__desc { margin-top: 10px; font-size: 15px; color: #999; }
+.case__desc { margin-top: 10px; font-size: 15px; color: var(--text-soft); }
 .cases__note {
   margin-top: 40px;
   font-family: "Courier New", monospace;
@@ -401,7 +463,7 @@ section[id] { scroll-margin-top: 70px; }
   letter-spacing: 0.06em;
   margin-bottom: 12px;
 }
-.dao__item p { font-size: 14px; color: #999; }
+.dao__item p { font-size: 14px; color: var(--text-soft); }
 .dao__links { display: flex; gap: 16px; flex-wrap: wrap; }
 
 /* ---------- Contact ---------- */
@@ -410,7 +472,7 @@ section[id] { scroll-margin-top: 70px; }
   max-width: 560px;
   margin: 0 auto 40px;
   font-size: 17px;
-  color: #b5b5b0;
+  color: var(--text-dim);
 }
 .contact__links {
   display: flex;

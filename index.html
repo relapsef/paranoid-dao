@@ -32,6 +32,10 @@
         <a href="#contact" data-i18n="nav.contact">Контакты</a>
       </nav>
       <div class="header__actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+          <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
         <button class="lang-toggle" id="langToggle" type="button">EN</button>
         <a href="#contact" class="btn btn--small" data-i18n="btn.contact">Связаться</a>
       </div>
@@ -349,6 +353,28 @@
     });
   });
 
+  // Переключение темы.
+  const themeToggle = document.getElementById('themeToggle');
+  let particleRGB = '255,255,255';
+
+  function applyTheme(t) {
+    if (t === 'light') document.documentElement.dataset.theme = 'light';
+    else delete document.documentElement.dataset.theme;
+    try { localStorage.setItem('theme', t); } catch (e) {}
+    particleRGB = getComputedStyle(document.documentElement)
+      .getPropertyValue('--particle-rgb').trim() || '255,255,255';
+  }
+
+  let savedTheme = 'dark';
+  try { savedTheme = localStorage.getItem('theme') || 'dark'; } catch (e) {}
+  applyTheme(savedTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+    });
+  }
+
   // Анимированный фон hero: частицы и связи между ними.
   const canvas = document.getElementById('heroCanvas');
   if (canvas) {
@@ -395,7 +421,7 @@
           const a = pts[i], b = pts[j];
           const d = Math.hypot(a.x - b.x, a.y - b.y);
           if (d < LINK) {
-            ctx.strokeStyle = 'rgba(255,255,255,' + ((1 - d / LINK) * 0.15).toFixed(3) + ')';
+            ctx.strokeStyle = 'rgba(' + particleRGB + ',' + ((1 - d / LINK) * 0.15).toFixed(3) + ')';
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -404,7 +430,7 @@
         }
       }
 
-      ctx.fillStyle = 'rgba(255,255,255,0.6)';
+      ctx.fillStyle = 'rgba(' + particleRGB + ',0.6)';
       for (const p of pts) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
