@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Paranoid DAO: маркетинг для крипто-проектов">
   <meta name="twitter:description" content="Маркетинговое агентство с доступом к 250+ крипто и AI-комьюнити.">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -336,6 +336,21 @@
       a.style.opacity = a.getAttribute('href') === '#' + current.id ? '1' : '0.5';
     });
     updatePlanet();
+    updateSections3D();
+  };
+
+  // 3D-переход секций: при появлении в вьюпорте «встают» из перспективы.
+  const contentSections = document.querySelectorAll('.section');
+  const updateSections3D = () => {
+    const vh = window.innerHeight;
+    for (const s of contentSections) {
+      const r = s.getBoundingClientRect();
+      const p = Math.min(Math.max((vh * 0.9 - r.top) / (vh * 0.55), 0), 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const angle = ((1 - eased) * 16).toFixed(2);
+      const lift = ((1 - eased) * 50).toFixed(1);
+      s.style.transform = 'perspective(1600px) rotateX(' + angle + 'deg) translateY(' + lift + 'px)';
+    }
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });

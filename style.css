@@ -245,6 +245,7 @@ section[id] { scroll-margin-top: 70px; }
   padding: 120px 0;
   content-visibility: auto;
   contain-intrinsic-size: auto 900px;
+  transform-origin: 50% 100%;
 }
 .section > .container { position: relative; z-index: 1; }
 
