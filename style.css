@@ -594,7 +594,12 @@ html[data-theme="light"] .service:hover {
   text-transform: uppercase;
   letter-spacing: -0.02em;
 }
-.channels__group { margin-bottom: 56px; }
+.channels__group {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 40px 36px 12px;
+  margin-bottom: 48px;
+}
 .channels__group:last-of-type { margin-bottom: 0; }
 .channels__platform {
   font-family: "Courier New", monospace;
@@ -608,14 +613,14 @@ html[data-theme="light"] .service:hover {
   font-size: clamp(24px, 3vw, 36px);
   font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 .channel-list { border-top: 1px solid var(--line); }
 .channel-row {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 18px 8px;
+  gap: 24px;
+  padding: 20px 8px;
   border-bottom: 1px solid var(--line);
   text-decoration: none;
   color: var(--text);
