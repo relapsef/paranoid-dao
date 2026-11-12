@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Paranoid DAO: маркетинг для крипто-проектов">
   <meta name="twitter:description" content="Маркетинговое агентство с доступом к 250+ крипто и AI-комьюнити.">
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=8">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -70,6 +70,8 @@
   </section>
 
   <section class="section" id="about">
+    <canvas class="about__canvas" id="aboutCanvas" aria-hidden="true"></canvas>
+    <div class="section__ghost section__ghost--right">communities</div>
     <div class="container">
       <p class="section__label" data-i18n="about.label">01 / О нас</p>
       <h2 class="section__title" data-i18n-html="about.title">Мы не «большое<br>агентство».</h2>
@@ -90,6 +92,7 @@
   </section>
 
   <section class="section section--invert" id="services">
+    <div class="section__ghost section__ghost--left">media plan</div>
     <div class="planet" aria-hidden="true">
       <div class="planet__ring"></div>
       <div class="planet__orb"><div class="planet__spin"></div></div>
@@ -123,6 +126,7 @@
   </section>
 
   <section class="section" id="cases">
+    <div class="section__ghost section__ghost--right">selected work</div>
     <div class="container">
       <p class="section__label" data-i18n="cases.label">03 / Кейсы</p>
       <h2 class="section__title" data-i18n="cases.title">Избранные работы</h2>
@@ -153,6 +157,7 @@
   </section>
 
   <section class="section section--invert" id="process">
+    <div class="section__ghost section__ghost--left">pipeline</div>
     <div class="container">
       <p class="section__label" data-i18n="process.label">04 / Как работаем</p>
       <h2 class="section__title" data-i18n-html="process.title">Четыре шага<br>до запуска.</h2>
@@ -178,6 +183,7 @@
   </section>
 
   <section class="section" id="contact">
+    <div class="section__ghost section__ghost--right">paranoid</div>
     <div class="container contact">
       <p class="section__label" data-i18n="contact.label">05 / Контакты</p>
       <h2 class="section__title" data-i18n-html="contact.title">Есть задача?<br>Пишите.</h2>
@@ -337,6 +343,7 @@
     });
     updatePlanet();
     updateSections3D();
+    updateCases();
   };
 
   // 3D-переход секций: при появлении в вьюпорте «встают» из перспективы.
@@ -355,6 +362,95 @@
 
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', updatePlanet);
+  // Липкая стопка кейсов: отмечаем карточки, которые уже накрыты следующей.
+  const caseEls = [...document.querySelectorAll('.case')];
+  const updateCases = () => {
+    for (let i = 0; i < caseEls.length; i++) {
+      const next = caseEls[i + 1];
+      let covered = false;
+      if (next) {
+        const r = caseEls[i].getBoundingClientRect();
+        const nr = next.getBoundingClientRect();
+        covered = nr.top < r.bottom - 6;
+      }
+      caseEls[i].classList.toggle('is-covered', covered);
+    }
+  };
+
+  // Карта сообществ в «О нас»: тихие частицы на фоне текста.
+  const aboutCanvas = document.getElementById('aboutCanvas');
+  if (aboutCanvas) {
+    const actx = aboutCanvas.getContext('2d');
+    const aboutSection = aboutCanvas.parentElement;
+    const AC_COUNT = 30;
+    const AC_LINK = 110;
+    const AC_SPEED = 0.18;
+    let apts = [];
+
+    const aresize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      const w = aboutSection.clientWidth, h = aboutSection.clientHeight;
+      aboutCanvas.width = w * dpr;
+      aboutCanvas.height = h * dpr;
+      aboutCanvas.style.width = w + 'px';
+      aboutCanvas.style.height = h + 'px';
+      actx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      apts = Array.from({ length: AC_COUNT }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * AC_SPEED,
+        vy: (Math.random() - 0.5) * AC_SPEED,
+        r: Math.random() * 1.6 + 0.6
+      }));
+    };
+
+    const adraw = () => {
+      const w = aboutSection.clientWidth, h = aboutSection.clientHeight;
+      actx.clearRect(0, 0, w, h);
+
+      for (const p of apts) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -20) p.x = w + 20;
+        if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20;
+        if (p.y > h + 20) p.y = -20;
+      }
+
+      actx.lineWidth = 1;
+      for (let i = 0; i < apts.length; i++) {
+        for (let j = i + 1; j < apts.length; j++) {
+          const a = apts[i], b = apts[j];
+          const d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < AC_LINK) {
+            actx.strokeStyle = 'rgba(' + particleRGB + ',' + ((1 - d / AC_LINK) * 0.07).toFixed(3) + ')';
+            actx.beginPath();
+            actx.moveTo(a.x, a.y);
+            actx.lineTo(b.x, b.y);
+            actx.stroke();
+          }
+        }
+      }
+
+      actx.fillStyle = 'rgba(' + particleRGB + ',0.35)';
+      for (const p of apts) {
+        actx.beginPath();
+        actx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        actx.fill();
+      }
+    };
+
+    const aloop = () => { adraw(); requestAnimationFrame(aloop); };
+
+    aresize();
+    window.addEventListener('resize', aresize);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      adraw();
+    } else {
+      aloop();
+    }
+  }
+
   onScroll();
 
   // Якорные ссылки: скролл без # в URL.

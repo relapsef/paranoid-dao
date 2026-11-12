@@ -250,6 +250,33 @@ section[id] { scroll-margin-top: 70px; }
 }
 .section > .container { position: relative; z-index: 1; }
 
+/* Гигантская фоновая типографика */
+.section__ghost {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(90px, 15vw, 210px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--text);
+  opacity: 0.045;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+.section__ghost--right { right: -1%; }
+.section__ghost--left { left: -1%; }
+
+/* Карта сообществ в «О нас» */
+.about__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* ---------- Planet decoration ---------- */
 .planet {
   position: absolute;
@@ -379,20 +406,42 @@ html[data-theme="light"] .planet__spin {
 }
 .service p { font-size: 15px; color: var(--text-soft); }
 
-/* ---------- Cases ---------- */
+/* Кейсы: липкая стопка, карточки наползают друг на друга */
 .cases__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
 }
 .case {
+  width: min(900px, 100%);
+  display: flex;
+  position: sticky;
+  top: 88px;
   border: 1px solid var(--line);
   background: var(--panel);
   transition: transform .3s ease, box-shadow .3s ease;
 }
-.case:hover {
+.case:not(.is-covered):hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+}
+.case.is-covered {
+  transform: scale(0.965);
+}
+.case__thumb--img {
+  width: 44%;
+  flex: 0 0 44%;
+  aspect-ratio: 16 / 10;
+  border-bottom: 0;
+  border-right: 1px solid var(--line);
+}
+.case__thumb--img img { height: 100%; }
+.case__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .case__thumb {
   aspect-ratio: 16/9;
@@ -538,7 +587,14 @@ html[data-theme="light"] .service:hover {
   .nav { display: none; }
   .about__grid { grid-template-columns: 1fr; }
   .services__grid { grid-template-columns: 1fr 1fr; }
-  .cases__grid { grid-template-columns: 1fr; }
+  .case { flex-direction: column; top: 72px; }
+  .case__thumb--img {
+    width: 100%;
+    flex: none;
+    aspect-ratio: 16 / 9;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
   .dao__grid { grid-template-columns: 1fr 1fr; }
   .hero__stats { flex-wrap: wrap; gap: 32px; }
   .section { padding: 80px 0; }
