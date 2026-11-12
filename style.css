@@ -499,6 +499,38 @@ html[data-theme="light"] .service:hover {
   padding-top: 32px;
 }
 
+/* ---------- Custom cursor ---------- */
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none !important; }
+}
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+}
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,0.9);
+  transform: translate(-50%, -50%);
+  transition: width .25s ease, height .25s ease, background-color .25s ease;
+}
+.cursor-ring.is-hover {
+  width: 58px;
+  height: 58px;
+  background: rgba(255,255,255,0.18);
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .nav { display: none; }
