@@ -38,9 +38,10 @@ html[data-theme="light"] {
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
+  overflow-x: clip;
   background: var(--bg);
   color: var(--text);
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
