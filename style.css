@@ -69,6 +69,15 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 64px;
+  max-width: none;
+  margin: 0;
+  padding: 0 28px;
+  position: relative;
+}
+.nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .header__actions {
   display: flex;
