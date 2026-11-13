@@ -20,7 +20,7 @@
   <meta name="twitter:image:alt" content="Paranoid DAO: маркетинг для крипто-проектов">
   <meta name="twitter:title" content="Paranoid DAO: маркетинг для крипто-проектов">
   <meta name="twitter:description" content="Маркетинговое агентство с доступом к 250+ крипто и AI-комьюнити.">
-  <link rel="stylesheet" href="style.css?v=14">
+  <link rel="stylesheet" href="style.css?v=15">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -541,6 +541,18 @@
       applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
     });
   }
+
+  // Плавающие стат-плитки: лёгкий 3D-наклон за курсором.
+  document.querySelectorAll('.stat').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      el.style.transform = 'perspective(500px) rotateY(' + (px * 14).toFixed(1) +
+        'deg) rotateX(' + (-py * 14).toFixed(1) + 'deg) translateZ(10px)';
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
 
   // Кастомный курсор: точка + кольцо с инерцией (только для мыши).
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {

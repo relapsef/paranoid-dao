@@ -228,8 +228,8 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
 
 /* Плавающая статистика возле заголовка (десктоп) */
 @keyframes floaty {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
 }
 @media (min-width: 1200px) {
   .hero__stats {
@@ -245,7 +245,9 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
     backdrop-filter: blur(8px);
     padding: 12px 18px;
     animation: floaty 7s ease-in-out infinite;
+    transition: transform .18s ease-out, border-color .25s ease;
   }
+  .stat:hover { border-color: var(--muted); }
   html[data-theme="light"] .stat {
     background: rgba(255, 255, 255, 0.65);
   }
