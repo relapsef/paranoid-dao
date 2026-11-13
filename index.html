@@ -314,8 +314,11 @@
   const langToggle = document.getElementById('langToggle');
   const marqueeSpans = document.querySelectorAll('.marquee__track span');
   const ruMarquee = marqueeSpans[0] ? marqueeSpans[0].textContent : '';
-  let savedLang = 'ru';
-  try { savedLang = localStorage.getItem('lang') || 'ru'; } catch (e) {}
+  let savedLang = null;
+  try { savedLang = localStorage.getItem('lang'); } catch (e) {}
+  if (!savedLang) {
+    savedLang = (navigator.language || '').toLowerCase().startsWith('ru') ? 'ru' : 'en';
+  }
 
   function setLang(lang) {
     document.documentElement.lang = lang;
