@@ -230,17 +230,11 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
 }
 @media (min-width: 1200px) {
   .hero__stats {
-    position: absolute;
-    right: 3%;
-    top: 30%;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 16px;
     border-top: 0;
     padding-top: 0;
-    z-index: 2;
   }
   .stat {
+    position: absolute;
     border: 1px solid var(--line);
     background: rgba(20, 20, 20, 0.55);
     backdrop-filter: blur(8px);
@@ -250,8 +244,9 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   html[data-theme="light"] .stat {
     background: rgba(255, 255, 255, 0.65);
   }
-  .stat:nth-child(2) { animation-delay: 1.6s; }
-  .stat:nth-child(3) { animation-delay: 3.2s; }
+  .stat:nth-child(1) { right: 3%; top: 36%; }
+  .stat:nth-child(2) { left: 3%; top: 66%; animation-delay: 1.6s; }
+  .stat:nth-child(3) { right: 3%; top: 72%; animation-delay: 3.2s; }
 }
 .marquee__track {
   display: flex;
