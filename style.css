@@ -200,7 +200,10 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   display: flex;
   gap: 48px;
   border-top: 1px solid var(--line);
-  padding-top: 32px;
+  padding: 32px 24px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 .stat { display: flex; flex-direction: column; }
 .stat__num {
@@ -232,6 +235,8 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   .hero__stats {
     border-top: 0;
     padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
   .stat {
     position: absolute;
@@ -244,9 +249,9 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   html[data-theme="light"] .stat {
     background: rgba(255, 255, 255, 0.65);
   }
-  .stat:nth-child(1) { right: 3%; top: 36%; }
-  .stat:nth-child(2) { left: 3%; top: 66%; animation-delay: 1.6s; }
-  .stat:nth-child(3) { right: 3%; top: 72%; animation-delay: 3.2s; }
+  .stat:nth-child(1) { right: 3%; top: 34%; }
+  .stat:nth-child(2) { left: 3%; top: 62%; animation-delay: 1.6s; }
+  .stat:nth-child(3) { right: 7%; top: 72%; animation-delay: 3.2s; }
 }
 .marquee__track {
   display: flex;
