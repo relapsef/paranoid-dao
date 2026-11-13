@@ -546,7 +546,6 @@ html[data-theme="light"] .planet__spin {
   margin-bottom: 12px;
 }
 .dao__item p { font-size: 14px; color: var(--text-soft); }
-.dao__links { display: flex; gap: 16px; flex-wrap: wrap; }
 
 /* В светлой теме карточки должны читаться на кремовом фоне */
 html[data-theme="light"] .service,

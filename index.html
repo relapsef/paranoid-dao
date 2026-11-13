@@ -20,7 +20,7 @@
   <meta name="twitter:image:alt" content="Paranoid DAO: маркетинг для крипто-проектов">
   <meta name="twitter:title" content="Paranoid DAO: маркетинг для крипто-проектов">
   <meta name="twitter:description" content="Маркетинговое агентство с доступом к 250+ крипто и AI-комьюнити.">
-  <link rel="stylesheet" href="style.css?v=13">
+  <link rel="stylesheet" href="style.css?v=14">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -367,18 +367,25 @@
     planetSpin.style.transform = 'rotate(' + (progress * 360) + 'deg)';
   };
 
+  // Скролл-обработчик через requestAnimationFrame: не чаще 1 раза за кадр.
+  let scrollQueued = false;
   const onScroll = () => {
-    const y = window.scrollY + 120;
-    let current = sections[0];
-    for (const s of sections) {
-      if (s.offsetTop <= y) current = s;
-    }
-    links.forEach(a => {
-      a.style.opacity = a.getAttribute('href') === '#' + current.id ? '1' : '0.5';
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(() => {
+      scrollQueued = false;
+      const y = window.scrollY + 120;
+      let current = sections[0];
+      for (const s of sections) {
+        if (s.offsetTop <= y) current = s;
+      }
+      links.forEach(a => {
+        a.style.opacity = a.getAttribute('href') === '#' + current.id ? '1' : '0.5';
+      });
+      updatePlanet();
+      updateSections3D();
+      updateCases();
     });
-    updatePlanet();
-    updateSections3D();
-    updateCases();
   };
 
   // 3D-переход секций: при появлении в вьюпорте «встают» из перспективы.
@@ -387,11 +394,17 @@
     const vh = window.innerHeight;
     for (const s of contentSections) {
       const r = s.getBoundingClientRect();
+      // Далеко за пределами экрана — снимаем transform, не тратим ресурсы.
+      if (r.bottom < -200 || r.top > vh + 200) {
+        if (s._t3d !== '') { s._t3d = ''; s.style.transform = ''; }
+        continue;
+      }
       const p = Math.min(Math.max((vh * 0.9 - r.top) / (vh * 0.55), 0), 1);
       const eased = 1 - Math.pow(1 - p, 3);
       const angle = ((1 - eased) * 16).toFixed(2);
       const lift = ((1 - eased) * 50).toFixed(1);
-      s.style.transform = 'perspective(1600px) rotateX(' + angle + 'deg) translateY(' + lift + 'px)';
+      const t = 'perspective(1600px) rotateX(' + angle + 'deg) translateY(' + lift + 'px)';
+      if (s._t3d !== t) { s._t3d = t; s.style.transform = t; }
     }
   };
 
@@ -475,7 +488,16 @@
       }
     };
 
-    const aloop = () => { adraw(); requestAnimationFrame(aloop); };
+    // Не рисуем кадры, когда секция «О нас» за пределами экрана.
+    let aboutVisible = true;
+    new IntersectionObserver(entries => {
+      aboutVisible = entries[0].isIntersecting;
+    }, { threshold: 0 }).observe(aboutSection);
+
+    const aloop = () => {
+      if (aboutVisible) adraw();
+      requestAnimationFrame(aloop);
+    };
 
     aresize();
     window.addEventListener('resize', aresize);
@@ -611,7 +633,16 @@
       }
     };
 
-    const loop = () => { draw(); requestAnimationFrame(loop); };
+    // Не рисуем кадры, когда hero за пределами экрана.
+    let heroVisible = true;
+    new IntersectionObserver(entries => {
+      heroVisible = entries[0].isIntersecting;
+    }, { threshold: 0 }).observe(hero);
+
+    const loop = () => {
+      if (heroVisible) draw();
+      requestAnimationFrame(loop);
+    };
 
     resize();
     window.addEventListener('resize', resize);
