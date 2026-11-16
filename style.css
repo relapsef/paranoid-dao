@@ -271,6 +271,8 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   }
   .stat {
     position: absolute;
+    color: var(--text);
+    text-decoration: none;
     border: 1px solid var(--line);
     background: rgba(20, 20, 20, 0.8);
     padding: 12px 18px;
