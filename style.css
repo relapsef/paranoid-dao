@@ -609,30 +609,16 @@ html[data-theme="light"] .service:hover {
 .cursor {
   position: fixed;
   top: 0; left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
   pointer-events: none;
   z-index: 9999;
-  border-radius: 50%;
   mix-blend-mode: difference;
-  will-change: transform;
+  transition: transform .18s ease, opacity .2s ease;
 }
-.cursor-dot {
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  transform: translate(-50%, -50%);
-}
-.cursor-ring {
-  width: 34px;
-  height: 34px;
-  border: 1px solid rgba(255,255,255,0.9);
-  transform: translate(-50%, -50%);
-  transition: width .25s ease, height .25s ease, background-color .25s ease;
-}
-.cursor-ring.is-hover {
-  width: 58px;
-  height: 58px;
-  background: rgba(255,255,255,0.18);
-}
+.cursor.is-hover { transform: scale(2.6); }
 
 /* ---------- Communities page ---------- */
 .page-hero {
