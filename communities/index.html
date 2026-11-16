@@ -18,23 +18,28 @@
     <div class="container header__inner">
       <a href="../" class="logo"><img src="../paranoid-logo.png" alt="" class="logo__img">PARANOID<span>DAO</span></a>
       <div class="header__actions">
-        <a href="../" class="btn btn--small btn--ghost">← На главную</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+          <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="lang-toggle" id="langToggle" type="button">EN</button>
+        <a href="../" class="btn btn--small btn--ghost" data-i18n="nav.home">← На главную</a>
       </div>
     </div>
   </header>
 
   <section class="page-hero">
     <div class="container">
-      <p class="section__label">// сеть агентства</p>
-      <h1 class="page-hero__title">Наша сеть<br>комьюнити.</h1>
+      <p class="section__label" data-i18n="net.label">// сеть агентства</p>
+      <h1 class="page-hero__title" data-i18n-html="net.title">Наша сеть<br>комьюнити.</h1>
     </div>
   </section>
 
   <section class="section">
     <div class="container" style="text-align:center; padding: 60px 0 100px;">
-      <p class="section__label">// статус</p>
-      <h2 class="section__title" style="margin-bottom: 24px;">Раздел в разработке.</h2>
-      <p style="color: var(--text-dim); font-size: 17px; max-width: 480px; margin: 0 auto;">
+      <p class="section__label" data-i18n="net.status">// статус</p>
+      <h2 class="section__title" style="margin-bottom: 24px;" data-i18n="net.soon">Раздел в разработке.</h2>
+      <p style="color: var(--text-dim); font-size: 17px; max-width: 480px; margin: 0 auto;" data-i18n="net.text">
         Мы собираем и проверяем список из 250+ крипто и AI-комьюнити.
         Скоро здесь появятся каналы по Telegram, X и YouTube.
       </p>
@@ -70,6 +75,72 @@
   </a>
   -->
 
+<script>
+  // Тема + язык (общие ключи localStorage с главной страницей).
+  const EN = {
+    "nav.home": "← Home",
+    "net.label": "// agency network",
+    "net.title": "Our community<br>network.",
+    "net.status": "// status",
+    "net.soon": "Coming soon.",
+    "net.text": "We're compiling and verifying a list of 250+ crypto and AI communities. Telegram, X and YouTube channels will appear here soon."
+  };
+
+  const themeToggle = document.getElementById('themeToggle');
+  function applyTheme(t) {
+    if (t === 'light') document.documentElement.dataset.theme = 'light';
+    else delete document.documentElement.dataset.theme;
+    try { localStorage.setItem('theme', t); } catch (e) {}
+  }
+  let savedTheme = 'dark';
+  try { savedTheme = localStorage.getItem('theme') || 'dark'; } catch (e) {}
+  applyTheme(savedTheme);
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+    });
+  }
+
+  const i18nEls = [...document.querySelectorAll('[data-i18n], [data-i18n-html]')];
+  const original = new Map(i18nEls.map(el => {
+    const entries = [];
+    if (el.hasAttribute('data-i18n')) entries.push(['data-i18n', el.textContent]);
+    if (el.hasAttribute('data-i18n-html')) entries.push(['data-i18n-html', el.innerHTML]);
+    return [el, entries];
+  }));
+
+  const langToggle = document.getElementById('langToggle');
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+    if (langToggle) langToggle.textContent = lang === 'en' ? 'RU' : 'EN';
+    for (const [el, entries] of original) {
+      for (const [attr, ruText] of entries) {
+        if (lang === 'en') {
+          const key = el.getAttribute(attr);
+          const value = EN[key];
+          if (value === undefined) continue;
+          if (attr === 'data-i18n') el.textContent = value;
+          else el.innerHTML = value;
+        } else {
+          if (attr === 'data-i18n') el.textContent = ruText;
+          else el.innerHTML = ruText;
+        }
+      }
+    }
+  }
+  let savedLang = null;
+  try { savedLang = localStorage.getItem('lang'); } catch (e) {}
+  if (!savedLang) {
+    savedLang = (navigator.language || '').toLowerCase().startsWith('ru') ? 'ru' : 'en';
+  }
+  setLang(savedLang);
+  if (langToggle) {
+    langToggle.addEventListener('click', () => {
+      setLang(document.documentElement.lang === 'en' ? 'ru' : 'en');
+    });
+  }
+</script>
 <!-- BEGIN PLERDY CODE -->
 <script data-plerdy_code='1'>
 (function(w,d){
