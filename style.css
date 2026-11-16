@@ -204,13 +204,7 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   color: var(--text-dim);
   margin-bottom: 40px;
 }
-.hero__actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
-.hero__pilot {
-  font-family: "Courier New", monospace;
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 24px;
-}
+.hero__actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 64px; }
 .hero__stats {
   display: flex;
   gap: 48px;
@@ -542,6 +536,15 @@ html[data-theme="light"] .planet__spin {
   font-size: 13px;
   color: var(--muted);
   text-align: center;
+}
+
+/* ---------- Pilot block ---------- */
+.pilot { text-align: center; }
+.pilot__text {
+  max-width: 560px;
+  margin: 0 auto 36px;
+  font-size: 17px;
+  color: var(--text-dim);
 }
 
 /* ---------- Process ---------- */
