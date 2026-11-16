@@ -263,6 +263,7 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   .stat:nth-child(1) { right: 3%; top: 34%; }
   .stat:nth-child(2) { left: 3%; top: 62%; animation-delay: 1.6s; }
   .stat:nth-child(3) { right: 7%; top: 72%; animation-delay: 3.2s; }
+  .stat:nth-child(4) { left: 3%; top: 44%; animation-delay: 4.4s; }
 }
 .marquee__track {
   display: flex;
@@ -276,6 +277,7 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   color: var(--muted);
 }
 .marquee__track span { flex: 0 0 auto; }
+.hero__marquee:hover .marquee__track { animation-play-state: paused; }
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
