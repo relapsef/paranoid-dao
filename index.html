@@ -20,7 +20,7 @@
   <meta name="twitter:image:alt" content="Paranoid DAO: маркетинг для крипто-проектов">
   <meta name="twitter:title" content="Paranoid DAO: маркетинг для крипто-проектов">
   <meta name="twitter:description" content="Маркетинговое агентство с доступом к 250+ крипто и AI-комьюнити.">
-  <link rel="stylesheet" href="style.css?v=22">
+  <link rel="stylesheet" href="style.css?v=23">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -389,9 +389,8 @@
 
   const updatePlanet = () => {
     if (!servicesSection || !planetSpin) return;
-    const r = servicesSection.getBoundingClientRect();
-    const vh = window.innerHeight;
-    const progress = Math.min(Math.max((vh - r.top) / (r.height + vh), 0), 1);
+    const top = servicesSection.offsetTop - window.scrollY;
+    const progress = Math.min(Math.max((window.innerHeight - top) / (servicesSection.offsetHeight + window.innerHeight), 0), 1);
     planetSpin.style.transform = 'rotate(' + (progress * 360) + 'deg)';
   };
 
@@ -420,14 +419,16 @@
   const contentSections = document.querySelectorAll('.section');
   const updateSections3D = () => {
     const vh = window.innerHeight;
+    const sy = window.scrollY;
     for (const s of contentSections) {
-      const r = s.getBoundingClientRect();
+      const top = s.offsetTop - sy;
+      const h = s.offsetHeight;
       // Далеко за пределами экрана — снимаем transform, не тратим ресурсы.
-      if (r.bottom < -200 || r.top > vh + 200) {
+      if (top + h < -200 || top > vh + 200) {
         if (s._t3d !== '') { s._t3d = ''; s.style.transform = ''; }
         continue;
       }
-      const p = Math.min(Math.max((vh * 0.9 - r.top) / (vh * 0.55), 0), 1);
+      const p = Math.min(Math.max((vh * 0.9 - top) / (vh * 0.55), 0), 1);
       const eased = 1 - Math.pow(1 - p, 3);
       const angle = ((1 - eased) * 16).toFixed(2);
       const lift = ((1 - eased) * 50).toFixed(1);
@@ -464,7 +465,7 @@
     let apts = [];
 
     const aresize = () => {
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       const w = aboutSection.clientWidth, h = aboutSection.clientHeight;
       aboutCanvas.width = w * dpr;
       aboutCanvas.height = h * dpr;
@@ -609,7 +610,7 @@
     let pts = [];
 
     const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       const w = hero.clientWidth, h = hero.clientHeight;
       canvas.width = w * dpr;
       canvas.height = h * dpr;
