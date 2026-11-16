@@ -722,6 +722,11 @@ html[data-theme="light"] .service:hover {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
+  .header__inner { padding: 0 14px; }
+  .header__actions { gap: 8px; }
+  .burger { width: 32px; height: 32px; padding: 7px 8px; }
+  .theme-toggle { width: 32px; height: 32px; }
+  .lang-toggle { padding: 6px 10px; font-size: 11px; }
   .burger { display: flex; }
   .nav {
     display: none;
