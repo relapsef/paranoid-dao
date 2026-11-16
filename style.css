@@ -558,6 +558,22 @@ html[data-theme="light"] .planet__spin {
 }
 .case__body h3 { font-size: 24px; font-weight: 800; text-transform: uppercase; }
 .case__desc { margin-top: 10px; font-size: 15px; color: var(--text-soft); }
+.case__row {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.case__row-label {
+  flex: 0 0 92px;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 3px;
+}
 .cases__note {
   margin-top: 40px;
   font-family: "Courier New", monospace;
