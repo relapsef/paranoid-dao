@@ -120,12 +120,16 @@ body {
 html[data-theme="light"] .theme-icon--moon { display: none; }
 html[data-theme="light"] .theme-icon--sun { display: block; }
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 900;
   font-size: 18px;
   letter-spacing: 0.08em;
   color: var(--text);
   text-decoration: none;
 }
+.logo__img { height: 28px; width: auto; display: block; }
 .logo span { color: var(--muted); font-weight: 400; }
 .nav { display: flex; gap: 28px; }
 .nav a {
