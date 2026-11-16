@@ -604,21 +604,11 @@ html[data-theme="light"] .service:hover {
 
 /* ---------- Custom cursor ---------- */
 @media (hover: hover) and (pointer: fine) {
-  * { cursor: none !important; }
+  * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M6 2.5 20 12l-6.2 1.6L11.5 20 6 2.5z' fill='white' stroke='black' stroke-width='1.6'/%3E%3C/svg%3E") 6 2, auto !important;
+  }
+  a, button { cursor: pointer; }
 }
-.cursor {
-  position: fixed;
-  top: 0; left: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #fff;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: transform .18s ease, opacity .2s ease;
-}
-.cursor.is-hover { transform: scale(2.6); }
 
 /* ---------- Communities page ---------- */
 .page-hero {
