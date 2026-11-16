@@ -204,7 +204,13 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   color: var(--text-dim);
   margin-bottom: 40px;
 }
-.hero__actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 64px; }
+.hero__actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+.hero__pilot {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
 .hero__stats {
   display: flex;
   gap: 48px;
