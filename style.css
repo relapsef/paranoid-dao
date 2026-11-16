@@ -15,6 +15,7 @@
   --planet-bg: #e6e6e0;
   --planet-ring: rgba(240,240,234,0.4);
   --particle-rgb: 255,255,255;
+  --header-h: clamp(72px, 7vw, 104px);
 }
 
 html[data-theme="light"] {
@@ -67,7 +68,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 88px;
+  height: var(--header-h);
   max-width: none;
   margin: 0;
   padding: 0 28px;
@@ -129,7 +130,7 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   color: var(--text);
   text-decoration: none;
 }
-.logo__img { height: 72px; width: auto; display: block; }
+.logo__img { height: calc(var(--header-h) - 16px); width: auto; display: block; }
 .logo span { color: var(--muted); font-weight: 400; }
 .nav { display: flex; gap: 28px; }
 .nav a {
@@ -311,7 +312,7 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
 }
 
 /* ---------- Sections ---------- */
-section[id] { scroll-margin-top: 100px; }
+section[id] { scroll-margin-top: 120px; }
 .section {
   position: relative;
   padding: 120px 0;
@@ -725,7 +726,7 @@ html[data-theme="light"] .service:hover {
   .nav {
     display: none;
     position: absolute;
-    top: 88px;
+    top: var(--header-h);
     left: 0;
     right: 0;
     transform: none;
