@@ -587,6 +587,17 @@
     });
   }
 
+  // Клик по всей карточке кейса ведет на проект.
+  document.querySelectorAll('.case').forEach(card => {
+    const link = card.querySelector('.case__thumb--img');
+    if (!link) return;
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', e => {
+      if (e.target.closest('a')) return;
+      window.open(link.href, '_blank', 'noopener');
+    });
+  });
+
   // Плавающие стат-плитки: лёгкий 3D-наклон за курсором.
   document.querySelectorAll('.stat').forEach(el => {
     el.addEventListener('mousemove', e => {
