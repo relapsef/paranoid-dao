@@ -159,7 +159,7 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   color: var(--text);
   text-decoration: none;
 }
-.logo__img { height: calc((var(--header-h) - 16px) * 0.7); width: auto; display: block; }
+.logo__img { height: calc((var(--header-h) - 16px) * 0.55); width: auto; display: block; }
 .logo span { color: var(--muted); font-weight: 400; }
 .nav { display: flex; gap: 28px; }
 .nav a {
