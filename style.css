@@ -593,7 +593,7 @@ html[data-theme="light"] .planet__spin {
 }
 .case__thumb--img--stars {
   background:
-    radial-gradient(closest-side at 50% 45%, rgba(245, 197, 66, 0.38), rgba(245, 197, 66, 0) 72%),
+    radial-gradient(closest-side at 50% 45%, rgba(56, 189, 248, 0.38), rgba(56, 189, 248, 0) 72%),
     var(--panel);
 }
 .case__body {
