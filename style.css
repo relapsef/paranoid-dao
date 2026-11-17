@@ -15,6 +15,7 @@
   --planet-bg: #e6e6e0;
   --planet-ring: rgba(240,240,234,0.4);
   --particle-rgb: 255,255,255;
+  --text-hi: #ffffff;
   --header-h: clamp(72px, 7vw, 104px);
 }
 
@@ -35,6 +36,7 @@ html[data-theme="light"] {
   --planet-bg: #1e1e1c;
   --planet-ring: rgba(20,20,18,0.4);
   --particle-rgb: 15,15,15;
+  --text-hi: #111111;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -163,10 +165,11 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
 .logo span { color: var(--muted); font-weight: 400; }
 .nav { display: flex; gap: 28px; }
 .nav a {
-  color: var(--text);
+  color: var(--text-hi);
   text-decoration: none;
   font-size: 14px;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   position: relative;
 }
 .nav a::after {
