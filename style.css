@@ -797,7 +797,7 @@ html[data-theme="light"] .service:hover {
   .header__actions .btn { display: none; }
   .about__grid { grid-template-columns: 1fr; }
   .services__grid { grid-template-columns: 1fr 1fr; }
-  .case { flex-direction: column; top: 72px; }
+  .case { position: static; flex-direction: column; }
   .case__thumb--img {
     width: 100%;
     flex: none;
