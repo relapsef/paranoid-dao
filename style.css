@@ -649,7 +649,8 @@ html[data-theme="light"] .planet__spin {
   padding-top: 3px;
 }
 .cases__marquee {
-  margin: 40px 0 48px;
+  max-width: 640px;
+  margin: 40px auto 48px;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
