@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paranoid DAO — маркетинговое агентство для крипто-проектов</title>
+  <title>Paranoid DAO — Crypto Marketing & Ads Agency</title>
   <meta name="description" content="Paranoid DAO — маркетинговое агентство для крипто- и AI-проектов: посевы и реклама в 250+ каналах Telegram, X и YouTube. Медиаплан, креативы, трафик и аналитика.">
   <link rel="canonical" href="https://paranoidao.xyz/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Paranoid DAO">
   <meta property="og:locale" content="ru_RU">
-  <meta property="og:title" content="Paranoid DAO — маркетинговое агентство для крипто-проектов">
+  <meta property="og:title" content="Paranoid DAO — Crypto Marketing & Ads Agency">
   <meta property="og:description" content="Посевы и реклама в 250+ крипто и AI-каналах Telegram, X и YouTube. Медиаплан, креативы, трафик и аналитика.">
   <meta property="og:url" content="https://paranoidao.xyz/">
   <meta property="og:image" content="https://paranoidao.xyz/og-image.png">
@@ -18,7 +18,7 @@
   <meta property="og:image:alt" content="Paranoid DAO: маркетинг для крипто-проектов. 250+ комьюнити в Telegram, X и YouTube.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image:alt" content="Paranoid DAO: маркетинг для крипто-проектов">
-  <meta name="twitter:title" content="Paranoid DAO — маркетинговое агентство для крипто-проектов">
+  <meta name="twitter:title" content="Paranoid DAO — Crypto Marketing & Ads Agency">
   <meta name="twitter:description" content="Маркетинговое агентство с доступом к 250+ крипто и AI-комьюнити.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -499,9 +499,15 @@
   }
 
   const DICTS = { en: EN, uk: UK };
+  const TITLES = {
+    ru: 'Paranoid DAO — маркетинговое агентство для крипто-проектов',
+    en: 'Paranoid DAO — Crypto Marketing & Ads Agency',
+    uk: 'Paranoid DAO — маркетингове агентство для крипто-проєктів'
+  };
 
   function setLang(lang) {
     document.documentElement.lang = lang;
+    document.title = TITLES[lang] || TITLES.en;
     try { localStorage.setItem('lang', lang); } catch (e) {}
     if (langToggle) langToggle.textContent = { ru: 'RU', en: 'EN', uk: 'UA' }[lang] || lang.toUpperCase();
     document.querySelectorAll('.lang-menu [data-lang-opt]').forEach(b => {
