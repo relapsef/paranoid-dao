@@ -20,7 +20,7 @@
   <meta name="twitter:image:alt" content="Paranoid DAO: маркетинг для крипто-проектов">
   <meta name="twitter:title" content="Paranoid DAO — Crypto Marketing & Ads Agency">
   <meta name="twitter:description" content="Маркетинговое агентство с доступом к 250+ крипто и AI-комьюнити.">
-  <link rel="stylesheet" href="style.css?v=35">
+  <link rel="stylesheet" href="style.css?v=36">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -70,7 +70,14 @@
           <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
           <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         </button>
-        <button class="lang-toggle" id="langToggle" type="button">EN</button>
+        <div class="lang">
+          <button class="lang-toggle" id="langToggle" type="button">RU</button>
+          <div class="lang-menu" id="langMenu">
+            <button type="button" data-lang-opt="ru">RU</button>
+            <button type="button" data-lang-opt="en">EN</button>
+            <button type="button" data-lang-opt="uk">UK</button>
+          </div>
+        </div>
         <a href="#contact" class="btn btn--small" data-i18n="btn.contact">Связаться</a>
       </div>
     </div>
@@ -344,6 +351,89 @@
     "contact.text": "Tell us about your project, budget and timeline. We'll build a media plan across crypto channels and get back with an offer. Not sure about budget? You can start with a test on a single channel."
   };
 
+  const UK = {
+    "nav.about": "Про нас",
+    "nav.services": "Послуги",
+    "nav.cases": "Кейси",
+    "nav.network": "Мережа",
+    "nav.process": "Як працюємо",
+    "nav.contact": "Контакти",
+    "btn.contact": "Зв'язатися",
+    "btn.cases": "Кейси",
+    "btn.tgdm": "Написати в ЛС",
+    "btn.tgchan": "Інфо-канал у Telegram",
+
+    "hero.label": "// маркетингове агентство",
+    "hero.title": "МИ ЗНАЄМО,<br>ДЕ ВАША<br>АУДИТОРІЯ.",
+    "hero.text": "Маркетингове агентство для крипто- та AI-проєктів. Збираємо медіаплани, розміщуємо рекламу в Telegram, X та YouTube і звітуємо цифрами.",
+    "hero.btnCases": "Дивитись кейси",
+    "hero.btnProject": "Обговорити проєкт",
+    "stat.communities": "ком'юніті",
+    "stat.platforms": "майданчики",
+    "stat.focus": "фокус",
+    "stat.reach": "загальне охоплення",
+    "stat.focusNum": "Крипто / AI",
+    "marquee": "РЕКЛАМА / ПОСІВИ / КРЕАТИВ / МЕДІАПЛАН / ТРАФІК / АНАЛІТИКА / ",
+
+    "about.label": "01 / Про нас",
+    "about.title": "Ми не «велике<br>агентство».",
+    "about.p1": "Ми невелика команда з доступом до 250+ крипто- та AI-ком'юніті в Telegram, X та YouTube. Працюємо з Web3-проєктами, NFT-колекціями, DAO та продуктами, яким потрібен маркетинг.",
+    "about.p2": "Без бюрократії: ви даєте нам задачу, ми збираємо медіаплан, розміщуємо рекламу в крипто-каналах і звітуємо реальними результатами. Бюджети, креативи та результати — прозорі.",
+
+    "services.label": "02 / Послуги",
+    "services.title": "Що робимо",
+    "svc1.title": "Креатив і контент",
+    "svc1.desc": "Тексти, банери та креативи для рекламних розміщень у крипто-каналах.",
+    "svc2.title": "Трафік і performance",
+    "svc2.desc": "Посіви та реклама в Telegram, X та YouTube-ком'юніті.",
+    "svc3.title": "Підбір каналів",
+    "svc3.desc": "Збираємо заявки від адмінів каналів і формуємо медіаплан під бюджет.",
+    "svc4.title": "Аналітика і звіти",
+    "svc4.desc": "Перевіряємо розміщення за ТЗ і звітуємо: що вийшло, де і з якими цифрами.",
+
+    "cases.label": "03 / Кейси",
+    "cases.title": "Вибрані роботи",
+    "case1.tag": "TON / TELEGRAM · НАТИВНИЙ ПОСТ",
+    "case1.title": "TonMarket",
+    "case1.desc": "Предикт-маркет у Telegram на TON.",
+    "case.task": "Задача",
+    "case.done": "Що зробили",
+    "case.result": "Результат",
+    "case.budget": "Бюджет",
+    "case1.task": "Привели гравців на реферальний та квест-івент із фармом токенів і стейблів.",
+    "case1.done": "Взяли 2 канали NFT/GIFTS-тематики, розмістили нативні пости з гайдом по івенту.",
+    "case1.result": "Близько 50 нових користувачів, частина зробила предикти під час івенту.",
+    "case1.budget": "$120 (2 канали: $70 + $50).",
+    "case2.tag": "STARS / PREMIUM · ТЕСТ КАНАЛУ",
+    "case2.title": "StarSnow",
+    "case2.desc": "Сервіс покупки Telegram Stars і Premium.",
+    "case2.task": "Перевірити попит на сервіс покупки Telegram Stars і Premium.",
+    "case2.done": "Тестове розміщення на одному каналі.",
+    "case2.result": "Близько 40 нових користувачів, були покупки Telegram Stars.",
+    "case2.budget": "$45 (1 канал).",
+    "cases.note": "Цифри з тестових кампаній — показують хороший CPL. Готові брати і великі офери.",
+
+    "pilot.label": "// пілот",
+    "pilot.title": "Пілот від $100.",
+    "pilot.text": "Тестове розміщення на одному або кількох каналах: перевіряємо, як аудиторія реагує на оффер, доки ви не вклали основний бюджет. Ви отримуєте нативний пост і звіт із цифрами.",
+    "pilot.btn": "Обговорити пілот",
+
+    "process.label": "04 / Як працюємо",
+    "process.title": "Чотири кроки<br>до запуску.",
+    "step1.title": "01 / Бриф",
+    "step1.desc": "Збираємо у проєкту задачу, бюджет і дедлайн.",
+    "step2.title": "02 / Заявки",
+    "step2.desc": "Збираємо заявки від каналів і ком'юніті, формуємо медіаплан.",
+    "step3.title": "03 / Погодження",
+    "step3.desc": "Проходимо медіаплан із клієнтом і затверджуємо розміщення.",
+    "step4.title": "04 / Контроль",
+    "step4.desc": "Перевіряємо виконання умов за ТЗ і віддаємо звіти з цифрами.",
+
+    "contact.label": "05 / Контакти",
+    "contact.title": "Є задача?<br>Пишіть.",
+    "contact.text": "Розкажіть про свій проєкт, бюджет і терміни. Ми зберемо медіаплан по крипто-каналах і надішлемо пропозицію. Не впевнені з бюджетом? Можна почати з тесту на одному каналі."
+  };
+
   // Сохраняем оригинальные (русские) тексты при загрузке.
   const i18nEls = [...document.querySelectorAll('[data-i18n], [data-i18n-html]')];
   const original = new Map(i18nEls.map(el => {
@@ -362,38 +452,52 @@
   let savedLang = null;
   try { savedLang = localStorage.getItem('lang'); } catch (e) {}
   if (!savedLang) {
-    savedLang = (navigator.language || '').toLowerCase().startsWith('ru') ? 'ru' : 'en';
+    const nav = (navigator.language || '').toLowerCase();
+    savedLang = nav.startsWith('uk') ? 'uk' : nav.startsWith('ru') ? 'ru' : 'en';
   }
+
+  const DICTS = { en: EN, uk: UK };
 
   function setLang(lang) {
     document.documentElement.lang = lang;
     try { localStorage.setItem('lang', lang); } catch (e) {}
-    if (langToggle) langToggle.textContent = lang === 'en' ? 'RU' : 'EN';
+    if (langToggle) langToggle.textContent = lang.toUpperCase();
+    document.querySelectorAll('.lang-menu [data-lang-opt]').forEach(b => {
+      b.classList.toggle('active', b.dataset.langOpt === lang);
+    });
 
     for (const [el, entries] of original) {
       for (const [attr, ruText] of entries) {
-        if (lang === 'en') {
-          const key = el.getAttribute(attr);
-          const value = EN[key];
-          if (value === undefined) continue;
-          if (attr === 'data-i18n') el.textContent = value;
-          else el.innerHTML = value;
-        } else {
-          if (attr === 'data-i18n') el.textContent = ruText;
-          else el.innerHTML = ruText;
-        }
+        const key = el.getAttribute(attr);
+        const value = lang === 'ru' ? ruText : (DICTS[lang] && DICTS[lang][key]);
+        if (value === undefined) continue;
+        if (attr === 'data-i18n') el.textContent = value;
+        else el.innerHTML = value;
       }
     }
 
-    const phrase = lang === 'en' ? EN['marquee'] : ruMarquee;
+    const phrase = lang === 'ru' ? ruMarquee : (DICTS[lang] && DICTS[lang]['marquee']) || EN['marquee'];
     marqueeSpans.forEach(s => { s.textContent = phrase.repeat(12); });
   }
 
-  if (langToggle) {
-    langToggle.addEventListener('click', () => {
-      setLang(document.documentElement.lang === 'en' ? 'ru' : 'en');
+  const langMenu = document.getElementById('langMenu');
+  if (langToggle && langMenu) {
+    langToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langMenu.classList.toggle('open');
+    });
+    langMenu.querySelectorAll('[data-lang-opt]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLang(btn.dataset.langOpt);
+        langMenu.classList.remove('open');
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.lang')) langMenu.classList.remove('open');
     });
   }
+
+  setLang(savedLang);
 
   setLang(savedLang);
 

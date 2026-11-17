@@ -7,7 +7,7 @@
   <meta name="description" content="Комьюнити Paranoid DAO: Telegram, Twitter/X и YouTube каналы крипто и AI тематики, с которыми работает агентство.">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://paranoidao.xyz/communities/">
-  <link rel="stylesheet" href="../style.css?v=35">
+  <link rel="stylesheet" href="../style.css?v=36">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -22,7 +22,14 @@
           <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
           <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         </button>
-        <button class="lang-toggle" id="langToggle" type="button">EN</button>
+        <div class="lang">
+          <button class="lang-toggle" id="langToggle" type="button">RU</button>
+          <div class="lang-menu" id="langMenu">
+            <button type="button" data-lang-opt="ru">RU</button>
+            <button type="button" data-lang-opt="en">EN</button>
+            <button type="button" data-lang-opt="uk">UK</button>
+          </div>
+        </div>
         <a href="../" class="btn btn--small btn--ghost" data-i18n="nav.home">← На главную</a>
       </div>
     </div>
@@ -86,6 +93,15 @@
     "net.text": "We're compiling and verifying a list of 250+ crypto and AI communities. Telegram, X and YouTube channels will appear here soon."
   };
 
+  const UK = {
+    "nav.home": "← На головну",
+    "net.label": "// мережа агентства",
+    "net.title": "Наша мережа<br>ком'юніті.",
+    "net.status": "// статус",
+    "net.soon": "Розділ у розробці.",
+    "net.text": "Ми збираємо та перевіряємо список із 250+ крипто- та AI-ком'юніті. Незабаром тут з'являться канали в Telegram, X та YouTube."
+  };
+
   const themeToggle = document.getElementById('themeToggle');
   function applyTheme(t) {
     if (t === 'light') document.documentElement.dataset.theme = 'light';
@@ -110,34 +126,46 @@
   }));
 
   const langToggle = document.getElementById('langToggle');
+  const langMenu = document.getElementById('langMenu');
+  const DICTS = { en: EN, uk: UK };
+
   function setLang(lang) {
     document.documentElement.lang = lang;
     try { localStorage.setItem('lang', lang); } catch (e) {}
-    if (langToggle) langToggle.textContent = lang === 'en' ? 'RU' : 'EN';
+    if (langToggle) langToggle.textContent = lang.toUpperCase();
+    if (langMenu) langMenu.querySelectorAll('[data-lang-opt]').forEach(b => {
+      b.classList.toggle('active', b.dataset.langOpt === lang);
+    });
     for (const [el, entries] of original) {
       for (const [attr, ruText] of entries) {
-        if (lang === 'en') {
-          const key = el.getAttribute(attr);
-          const value = EN[key];
-          if (value === undefined) continue;
-          if (attr === 'data-i18n') el.textContent = value;
-          else el.innerHTML = value;
-        } else {
-          if (attr === 'data-i18n') el.textContent = ruText;
-          else el.innerHTML = ruText;
-        }
+        const key = el.getAttribute(attr);
+        const value = lang === 'ru' ? ruText : (DICTS[lang] && DICTS[lang][key]);
+        if (value === undefined) continue;
+        if (attr === 'data-i18n') el.textContent = value;
+        else el.innerHTML = value;
       }
     }
   }
   let savedLang = null;
   try { savedLang = localStorage.getItem('lang'); } catch (e) {}
   if (!savedLang) {
-    savedLang = (navigator.language || '').toLowerCase().startsWith('ru') ? 'ru' : 'en';
+    const nav = (navigator.language || '').toLowerCase();
+    savedLang = nav.startsWith('uk') ? 'uk' : nav.startsWith('ru') ? 'ru' : 'en';
   }
   setLang(savedLang);
-  if (langToggle) {
-    langToggle.addEventListener('click', () => {
-      setLang(document.documentElement.lang === 'en' ? 'ru' : 'en');
+  if (langToggle && langMenu) {
+    langToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langMenu.classList.toggle('open');
+    });
+    langMenu.querySelectorAll('[data-lang-opt]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLang(btn.dataset.langOpt);
+        langMenu.classList.remove('open');
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.lang')) langMenu.classList.remove('open');
     });
   }
 </script>

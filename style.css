@@ -100,6 +100,35 @@ body {
   background: var(--text);
   color: var(--bg);
 }
+.lang { position: relative; }
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 72px;
+  display: none;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  z-index: 200;
+}
+.lang-menu.open { display: flex; }
+.lang-menu button {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 9px 14px;
+  cursor: pointer;
+  text-align: left;
+}
+.lang-menu button:last-child { border-bottom: 0; }
+.lang-menu button:hover { background: var(--text); color: var(--bg); }
+.lang-menu button.active { color: var(--muted); }
 .theme-toggle {
   display: flex;
   align-items: center;
