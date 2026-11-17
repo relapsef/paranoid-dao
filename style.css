@@ -586,13 +586,13 @@ html[data-theme="light"] .planet__spin {
   justify-content: center;
 }
 .case__thumb--img img { height: 100%; }
-.case__thumb--img--ton {
+.case__thumb.case__thumb--img--ton {
   background: linear-gradient(135deg, #2f6fe4 0%, #123a7d 55%, #0a1e4a 100%);
 }
-.case__thumb--img--stars {
+.case__thumb.case__thumb--img--stars {
   background: linear-gradient(135deg, #ffd23f 0%, #f5a623 45%, #229ed9 100%);
 }
-.case__thumb--img--stars img {
+.case__thumb.case__thumb--img--stars img {
   width: 62%;
   height: 62%;
   padding: 0;
