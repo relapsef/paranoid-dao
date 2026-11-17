@@ -714,8 +714,10 @@ html[data-theme="light"] .service:hover {
 }
 .contact__foot {
   font-family: "Courier New", monospace;
-  font-size: 12px;
-  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
   border-top: 1px solid var(--line);
   padding-top: 32px;
 }
