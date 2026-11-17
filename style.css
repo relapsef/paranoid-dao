@@ -720,9 +720,11 @@ html[data-theme="light"] .planet__spin {
 .case-chip__name { font-weight: 700; font-size: 14px; letter-spacing: 0.02em; }
 
 .cases__note {
-  margin-top: 48px;
+  position: relative;
+  z-index: 5;
+  margin-top: 56px;
   font-family: "Courier New", monospace;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-dim);
   text-align: center;
 }
@@ -939,6 +941,7 @@ html[data-theme="light"] .service:hover {
   .dao__grid { grid-template-columns: 1fr; }
 }
 /* ---------- Cases: glow cards ---------- */
+.section#cases { padding-top: 72px; }
 .case--ton { --glow: #3a5f9f; }
 .case--stars { --glow: #8a6a2e; }
 
@@ -1004,12 +1007,14 @@ html[data-theme="light"] .service:hover {
   object-fit: cover;
 }
 .case__thumb-name {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
   font-size: 56px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
   line-height: 1;
   color: #fff;
+  white-space: nowrap;
   border: 0;
   background: transparent;
   padding: 0;
