@@ -168,8 +168,8 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   color: var(--text-hi);
   text-decoration: none;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   position: relative;
 }
 .nav a::after {
