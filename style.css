@@ -588,13 +588,13 @@ html[data-theme="light"] .planet__spin {
 .case__thumb--img img { height: 100%; }
 .case__thumb--img--ton {
   background:
-    radial-gradient(closest-side at 50% 45%, rgba(0, 152, 234, 0.4), rgba(0, 152, 234, 0) 72%),
-    var(--panel);
+    radial-gradient(closest-side at 50% 45%, rgba(0, 152, 234, 0.16), rgba(0, 152, 234, 0) 70%),
+    radial-gradient(closest-side at 50% 45%, var(--panel), var(--bg) 75%);
 }
 .case__thumb--img--stars {
   background:
-    radial-gradient(closest-side at 50% 45%, rgba(56, 189, 248, 0.38), rgba(56, 189, 248, 0) 72%),
-    var(--panel);
+    radial-gradient(closest-side at 50% 45%, rgba(56, 189, 248, 0.14), rgba(56, 189, 248, 0) 70%),
+    radial-gradient(closest-side at 50% 45%, var(--panel), var(--bg) 75%);
 }
 .case__body {
   flex: 1;
