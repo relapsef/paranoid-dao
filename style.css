@@ -735,7 +735,7 @@ html[data-theme="light"] .service:hover {
 }
 
 /* ---------- Contact ---------- */
-.contact { text-align: center; }
+.contact { text-align: center; padding-bottom: 72px; }
 .contact__text {
   max-width: 560px;
   margin: 0 auto 40px;
@@ -747,16 +747,16 @@ html[data-theme="light"] .service:hover {
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 }
 .contact__foot {
   font-family: "Courier New", monospace;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--text-dim);
+  color: var(--text-hi);
   border-top: 1px solid var(--line);
-  padding-top: 32px;
+  padding-top: 24px;
 }
 
 /* ---------- Custom cursor ---------- */
