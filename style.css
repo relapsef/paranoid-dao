@@ -756,7 +756,7 @@ html[data-theme="light"] .service:hover {
   letter-spacing: 0.08em;
   color: var(--text-hi);
   border-top: 1px solid var(--line);
-  padding-top: 24px;
+  padding-top: 56px;
 }
 
 /* ---------- Custom cursor ---------- */
