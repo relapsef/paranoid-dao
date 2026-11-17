@@ -684,7 +684,7 @@ html[data-theme="light"] .planet__spin {
 }
 .cases__marquee {
   max-width: 640px;
-  margin: 40px auto 48px;
+  margin: 40px auto 20px;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -992,7 +992,7 @@ html[data-theme="light"] .service:hover {
   transition: opacity .25s ease;
 }
 .case__thumb--img img {
-  height: 100px;
+  height: 110px;
   width: auto;
   padding: 0;
   border-radius: 0;
@@ -1001,14 +1001,14 @@ html[data-theme="light"] .service:hover {
   position: static;
 }
 .case--stars .case__thumb--img img {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   object-fit: cover;
 }
 .case__thumb-name {
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
-  font-size: 56px;
+  font-size: 58px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: -0.01em;
@@ -1080,7 +1080,7 @@ html[data-theme="light"] .service:hover {
 
 @media (max-width: 900px) {
   .cases__grid { grid-template-columns: 1fr; }
-  .case__thumb-name { font-size: 40px; }
+  .case__thumb-name { font-size: 44px; }
   .case__body { padding: 22px 22px; }
   .case__row { font-size: 12px; margin-top: 8px; }
   .case__row-label { flex-basis: 64px; font-size: 10px; }
