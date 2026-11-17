@@ -263,7 +263,8 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
 .hero__actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 64px; }
 .hero__stats {
   display: flex;
-  gap: 48px;
+  flex-wrap: wrap;
+  gap: 24px 48px;
   border-top: 1px solid var(--line);
   padding: 32px 24px 0;
   max-width: 1200px;
@@ -346,10 +347,12 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   html[data-theme="light"] .stat {
     background: rgba(255, 255, 255, 0.85);
   }
-  .stat:nth-child(1) { left: 50%; top: 2%; animation-delay: 0s; }
-  .stat:nth-child(2) { left: 92%; top: 34%; animation-delay: 1.6s; }
-  .stat:nth-child(3) { left: 60%; top: 96%; animation-delay: 3.2s; }
-  .stat:nth-child(4) { left: 8%; top: 60%; animation-delay: 4.4s; }
+  .stat:nth-child(1) { left: 50%; top: 6%; animation-delay: 0s; }
+  .stat:nth-child(2) { left: 86%; top: 27%; animation-delay: 1.2s; }
+  .stat:nth-child(3) { left: 86%; top: 71%; animation-delay: 2.4s; }
+  .stat:nth-child(4) { left: 50%; top: 92%; animation-delay: 3.6s; }
+  .stat:nth-child(5) { left: 14%; top: 71%; animation-delay: 4.8s; }
+  .stat:nth-child(6) { left: 14%; top: 27%; animation-delay: 6s; }
 }
 .marquee__track {
   display: flex;
