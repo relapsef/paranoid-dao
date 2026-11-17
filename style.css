@@ -250,7 +250,7 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
   margin-bottom: 24px;
 }
 .hero__title {
-  font-size: clamp(42px, 8vw, 96px);
+  font-size: clamp(48px, 9vw, 112px);
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -259,7 +259,7 @@ html[data-theme="light"] .theme-icon--sun { display: block; }
 }
 .hero__text {
   max-width: 560px;
-  font-size: 18px;
+  font-size: 17px;
   color: var(--text-dim);
   margin-bottom: 40px;
 }
@@ -494,12 +494,12 @@ html[data-theme="light"] .planet__spin {
 }
 .section__label {
   font-family: "Courier New", monospace;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--muted);
   margin-bottom: 16px;
 }
 .section__title {
-  font-size: clamp(32px, 5vw, 56px);
+  font-size: clamp(36px, 5.5vw, 64px);
   font-weight: 900;
   line-height: 1.02;
   text-transform: uppercase;
@@ -631,7 +631,7 @@ html[data-theme="light"] .planet__spin {
   margin-bottom: 10px;
 }
 .case__body h3 { font-size: 24px; font-weight: 800; text-transform: uppercase; }
-.case__desc { margin-top: 10px; font-size: 15px; color: var(--text-soft); }
+.case__desc { margin-top: 10px; font-size: 14px; color: var(--text-soft); }
 .case__row {
   display: flex;
   gap: 14px;
@@ -736,7 +736,7 @@ html[data-theme="light"] .service:hover {
   border-bottom: 1px solid var(--line);
 }
 .page-hero__title {
-  font-size: clamp(40px, 7vw, 80px);
+  font-size: clamp(44px, 8vw, 92px);
   font-weight: 900;
   line-height: 0.98;
   text-transform: uppercase;
