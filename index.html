@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=52">
+  <link rel="stylesheet" href="style.css?v=53">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -181,6 +181,18 @@
     <div class="container">
       <p class="section__label" data-i18n="cases.label">03 / Кейсы</p>
       <h2 class="section__title" data-i18n="cases.title">Избранные работы</h2>
+      <div class="cases__marquee" aria-hidden="true">
+        <div class="cases__track">
+          <a class="case-chip" href="https://t.me/TonMarketIo_bot" target="_blank" rel="noopener"><img src="tonmarket-icon.png" alt=""><span class="case-chip__name">TonMarket</span></a>
+          <a class="case-chip" href="https://t.me/starsnowshop_bot" target="_blank" rel="noopener"><img src="starsnow-mascot.png" alt=""><span class="case-chip__name">StarSnow</span></a>
+          <a class="case-chip" href="https://t.me/TonMarketIo_bot" target="_blank" rel="noopener"><img src="tonmarket-icon.png" alt=""><span class="case-chip__name">TonMarket</span></a>
+          <a class="case-chip" href="https://t.me/starsnowshop_bot" target="_blank" rel="noopener"><img src="starsnow-mascot.png" alt=""><span class="case-chip__name">StarSnow</span></a>
+          <a class="case-chip" href="https://t.me/TonMarketIo_bot" target="_blank" rel="noopener"><img src="tonmarket-icon.png" alt=""><span class="case-chip__name">TonMarket</span></a>
+          <a class="case-chip" href="https://t.me/starsnowshop_bot" target="_blank" rel="noopener"><img src="starsnow-mascot.png" alt=""><span class="case-chip__name">StarSnow</span></a>
+          <a class="case-chip" href="https://t.me/TonMarketIo_bot" target="_blank" rel="noopener"><img src="tonmarket-icon.png" alt=""><span class="case-chip__name">TonMarket</span></a>
+          <a class="case-chip" href="https://t.me/starsnowshop_bot" target="_blank" rel="noopener"><img src="starsnow-mascot.png" alt=""><span class="case-chip__name">StarSnow</span></a>
+        </div>
+      </div>
       <div class="cases__grid">
         <article class="case">
           <a class="case__thumb case__thumb--img" href="https://t.me/TonMarketIo_bot" target="_blank" rel="noopener">
@@ -210,16 +222,6 @@
             <div class="case__row"><span class="case__row-label" data-i18n="case.budget">Бюджет</span><span data-i18n="case2.budget">$45 (1 канал).</span></div>
           </div>
         </article>
-      </div>
-      <div class="cases__marquee" aria-hidden="true">
-        <div class="cases__track">
-          <a class="case-chip" href="https://t.me/TonMarketIo_bot" target="_blank" rel="noopener"><img src="tonmarket-icon.png" alt=""><span class="case-chip__name">TonMarket</span><span class="case-chip__sub" data-i18n="chip1.sub">~50 юзеров · CPL ~$2.4</span></a>
-          <a class="case-chip" href="https://t.me/starsnowshop_bot" target="_blank" rel="noopener"><img src="starsnow-mascot.png" alt=""><span class="case-chip__name">StarSnow</span><span class="case-chip__sub" data-i18n="chip2.sub">~40 юзеров · покупки Stars</span></a>
-          <a class="case-chip" href="https://t.me/TonMarketIo_bot" target="_blank" rel="noopener"><img src="tonmarket-icon.png" alt=""><span class="case-chip__name">TonMarket</span><span class="case-chip__sub" data-i18n="chip1.sub">~50 юзеров · CPL ~$2.4</span></a>
-          <a class="case-chip" href="https://t.me/starsnowshop_bot" target="_blank" rel="noopener"><img src="starsnow-mascot.png" alt=""><span class="case-chip__name">StarSnow</span><span class="case-chip__sub" data-i18n="chip2.sub">~40 юзеров · покупки Stars</span></a>
-          <a class="case-chip" href="https://t.me/TonMarketIo_bot" target="_blank" rel="noopener"><img src="tonmarket-icon.png" alt=""><span class="case-chip__name">TonMarket</span><span class="case-chip__sub" data-i18n="chip1.sub">~50 юзеров · CPL ~$2.4</span></a>
-          <a class="case-chip" href="https://t.me/starsnowshop_bot" target="_blank" rel="noopener"><img src="starsnow-mascot.png" alt=""><span class="case-chip__name">StarSnow</span><span class="case-chip__sub" data-i18n="chip2.sub">~40 юзеров · покупки Stars</span></a>
-        </div>
       </div>
       <p class="cases__note" data-i18n="cases.note">Цифры из тестовых кампаний — показывают хороший CPL. Готовы брать и крупные офферы.</p>
     </div>
@@ -353,8 +355,6 @@
     "case2.result": "Around 40 new users, with real Telegram Stars purchases.",
     "case2.budget": "$45 (1 channel).",
     "cases.note": "Figures are from test campaigns showing strong CPL. We take large offers too.",
-    "chip1.sub": "~50 users · CPL ~$2.4",
-    "chip2.sub": "~40 users · Stars purchases",
 
     "pilot.label": "// pilot",
     "pilot.title": "Pilot from $100.",
@@ -442,8 +442,6 @@
     "case2.result": "Близько 40 нових користувачів, були покупки Telegram Stars.",
     "case2.budget": "$45 (1 канал).",
     "cases.note": "Цифри з тестових кампаній — показують хороший CPL. Готові брати і великі офери.",
-    "chip1.sub": "~50 юзерів · CPL ~$2.4",
-    "chip2.sub": "~40 юзерів · покупки Stars",
 
     "pilot.label": "// пілот",
     "pilot.title": "Пілот від $100.",

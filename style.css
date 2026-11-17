@@ -665,7 +665,7 @@ html[data-theme="light"] .planet__spin {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 20px 10px 10px;
+  padding: 8px 18px 8px 8px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--panel);
@@ -683,12 +683,6 @@ html[data-theme="light"] .planet__spin {
   flex: 0 0 auto;
 }
 .case-chip__name { font-weight: 700; font-size: 14px; letter-spacing: 0.02em; }
-.case-chip__sub {
-  font-family: "Courier New", monospace;
-  font-size: 11px;
-  color: var(--muted);
-  white-space: nowrap;
-}
 
 .cases__note {
   margin-top: 40px;
