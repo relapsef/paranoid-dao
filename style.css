@@ -64,6 +64,8 @@ body {
   top: 0; left: 0; right: 0;
   z-index: 100;
   background: var(--header-bg);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
 .header__inner {
@@ -683,6 +685,7 @@ html[data-theme="light"] .planet__spin {
   padding-top: 3px;
 }
 .cases__marquee {
+  display: none;
   max-width: 640px;
   margin: 40px auto 20px;
   overflow: hidden;
@@ -720,9 +723,8 @@ html[data-theme="light"] .planet__spin {
 .case-chip__name { font-weight: 700; font-size: 14px; letter-spacing: 0.02em; }
 
 .cases__note {
-  position: relative;
-  z-index: 5;
-  margin-top: 56px;
+  margin: 28px auto 0;
+  max-width: 720px;
   font-family: "Courier New", monospace;
   font-size: 15px;
   color: var(--text-dim);
@@ -992,7 +994,7 @@ html[data-theme="light"] .service:hover {
   transition: opacity .25s ease;
 }
 .case__thumb--img img {
-  height: 110px;
+  height: 68px;
   width: auto;
   padding: 0;
   border-radius: 0;
@@ -1001,17 +1003,17 @@ html[data-theme="light"] .service:hover {
   position: static;
 }
 .case--stars .case__thumb--img img {
-  width: 110px;
-  height: 110px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   object-fit: cover;
 }
 .case__thumb-name {
-  font-family: "Inter", "Segoe UI", Arial, sans-serif;
-  font-size: 58px;
-  font-weight: 800;
+  font-family: "Anton", Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: .02em;
   line-height: 1;
   color: #fff;
   white-space: nowrap;
@@ -1080,7 +1082,7 @@ html[data-theme="light"] .service:hover {
 
 @media (max-width: 900px) {
   .cases__grid { grid-template-columns: 1fr; }
-  .case__thumb-name { font-size: 44px; }
+  .case__thumb-name { font-size: 34px; }
   .case__body { padding: 22px 22px; }
   .case__row { font-size: 12px; margin-top: 8px; }
   .case__row-label { flex-basis: 64px; font-size: 10px; }
