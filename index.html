@@ -20,7 +20,7 @@
   <meta name="twitter:image:alt" content="Paranoid DAO: маркетинг для крипто-проектов">
   <meta name="twitter:title" content="Paranoid DAO — Crypto Marketing & Ads Agency">
   <meta name="twitter:description" content="Маркетинговое агентство с доступом к 250+ крипто и AI-комьюнити.">
-  <link rel="stylesheet" href="style.css?v=39">
+  <link rel="stylesheet" href="style.css?v=40">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -75,7 +75,7 @@
           <div class="lang-menu" id="langMenu">
             <button type="button" data-lang-opt="ru">RU</button>
             <button type="button" data-lang-opt="en">EN</button>
-            <button type="button" data-lang-opt="uk">UK</button>
+            <button type="button" data-lang-opt="uk">UA</button>
           </div>
         </div>
         <a href="#contact" class="btn btn--small" data-i18n="btn.contact">Связаться</a>
@@ -461,7 +461,7 @@
   function setLang(lang) {
     document.documentElement.lang = lang;
     try { localStorage.setItem('lang', lang); } catch (e) {}
-    if (langToggle) langToggle.textContent = lang.toUpperCase();
+    if (langToggle) langToggle.textContent = { ru: 'RU', en: 'EN', uk: 'UA' }[lang] || lang.toUpperCase();
     document.querySelectorAll('.lang-menu [data-lang-opt]').forEach(b => {
       b.classList.toggle('active', b.dataset.langOpt === lang);
     });
@@ -577,6 +577,23 @@
       caseEls[i].classList.toggle('is-covered', covered);
     }
   };
+
+  // Появление карточек кейсов при скролле (мобильные).
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    caseEls.forEach(el => el.classList.add('in-view'));
+  } else if ('IntersectionObserver' in window) {
+    const caseIO = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.classList.add('in-view');
+          caseIO.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    caseEls.forEach(el => caseIO.observe(el));
+  } else {
+    caseEls.forEach(el => el.classList.add('in-view'));
+  }
 
   // Карта сообществ в «О нас»: тихие частицы на фоне текста.
   const aboutCanvas = document.getElementById('aboutCanvas');

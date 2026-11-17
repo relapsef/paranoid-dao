@@ -797,7 +797,14 @@ html[data-theme="light"] .service:hover {
   .header__actions .btn { display: none; }
   .about__grid { grid-template-columns: 1fr; }
   .services__grid { grid-template-columns: 1fr 1fr; }
-  .case { position: static; flex-direction: column; }
+  .case {
+    position: static;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .5s ease, transform .5s ease, box-shadow .3s ease;
+  }
+  .case.in-view { opacity: 1; transform: none; }
   .case__thumb--img {
     width: 100%;
     flex: none;
