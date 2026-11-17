@@ -586,6 +586,16 @@ html[data-theme="light"] .planet__spin {
   justify-content: center;
 }
 .case__thumb--img img { height: 100%; }
+.case__thumb--img--ton {
+  background:
+    radial-gradient(closest-side at 50% 45%, rgba(0, 152, 234, 0.4), rgba(0, 152, 234, 0) 72%),
+    var(--panel);
+}
+.case__thumb--img--stars {
+  background:
+    radial-gradient(closest-side at 50% 45%, rgba(245, 197, 66, 0.38), rgba(245, 197, 66, 0) 72%),
+    var(--panel);
+}
 .case__body {
   flex: 1;
   display: flex;
