@@ -1,47 +1,29 @@
-# PARANOID DAO
+# Paranoid DAO
 
-> Маркетинговое агентство, которое продвигает проекты через крипто- и AI-комьюнити.
-> Не DAO в блокчейн-смысле. Просто название. Мы не ищем смысл там, где его нет.
+Marketing agency for crypto and AI projects. Static portfolio site.
 
-🌐 **Сайт:** [paranoidao.xyz](https://paranoidao.xyz)
+Live: https://paranoidao.xyz
 
----
+## Stack
 
-## Что мы делаем
+Plain HTML/CSS/JS. No build step, no dependencies.
 
-- **Креатив и контент** — тексты, баннеры, крео под рекламные размещения
-- **Трафик и performance** — посевы и реклама в Telegram, Twitter, YouTube-комьюнити
-- **Подбор каналов** — собираем заявки от админов и собираем медиаплан под бюджет
-- **Аналитика и отчёты** — проверяем размещения по ТЗ, отдаём цифры
+## Structure
 
-За плечами — **250+ крипто и AI-комьюнити**. Мы не «большое агентство», у нас нет офисов, просто доступ к аудитории, которую другие ищут месяцами.
+- `index.html` — main page (RU/EN/UK, dark/light theme)
+- `communities/index.html` — community network page
+- `communities.html` — redirect to `/communities/`
+- `style.css`, inline JS in `index.html`
+- `robots.txt`, `sitemap.xml`, `CNAME`, `_headers`
 
-## Как работаем
+## Deploy
 
-```
-01 / БРИФ        → задача, бюджет, дедлайн
-02 / ЗАЯВКИ      → собираем офферы от каналов, строим медиаплан
-03 / СОГЛАСОВАНИЕ → утверждаем размещения с клиентом
-04 / КОНТРОЛЬ    → проверяем по ТЗ, отдаём отчёт с цифрами
-```
+GitHub Pages serves this repo directly. Push to `main` → live in ~1 min.
+Dev files live outside the repo in `../paranoid-dao-dev`.
 
-Никакой бюрократии. Дали задачу — получили результат.
+## Contacts
 
-## Кейсы
+Telegram: [@paranoidao](https://t.me/paranoidao) · [@relapseqq](https://t.me/relapseqq)
+X: [@shikigamiWW](https://x.com/shikigamiWW) · mashiros17s@gmail.com
 
-| Проект | Что делали |
-|---|---|
-| [TonMarket](https://t.me/TonMarketIo_bot) | Предикт-маркет в Telegram на TON. Прогрев аудитории и реклама в крипто-каналах под реферальный и квест-ивент |
-
-*Больше кейсов — скоро. Мы молодые, но уже параноидальные.*
-
-## Контакты
-
-- 💬 Канал: [@paranoidao](https://t.me/paranoidao)
-- ✉️ Личка: [@relapseqq](https://t.me/relapseqq)
-- 🐦 [X / Twitter](https://x.com/shikigamiWW)
-- 📧 mashiros17s@gmail.com
-
----
-
-<sub>© 2026 Paranoid DAO. Сделано в чёрно-белом, потому что цвет — это лишние деньги.</sub>
+© Paranoid DAO
