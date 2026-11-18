@@ -16,11 +16,6 @@ Plain HTML/CSS/JS. No build step, no dependencies.
 - `style.css`, inline JS in `index.html`
 - `robots.txt`, `sitemap.xml`, `CNAME`, `_headers`
 
-## Deploy
-
-GitHub Pages serves this repo directly. Push to `main` → live in ~1 min.
-Dev files live outside the repo in `../paranoid-dao-dev`.
-
 ## Contacts
 
 Telegram: [@paranoidao](https://t.me/paranoidao) · [@relapseqq](https://t.me/relapseqq)
