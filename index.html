@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=79">
+  <link rel="stylesheet" href="style.css?v=78">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -212,7 +212,7 @@
           </a>
           <div class="case__body">
             <p class="case__tag" data-i18n="case1.tag">TON / TELEGRAM · НАТИВ-ПОСТ</p>
-            <h3><a class="case__title-link" data-i18n="case1.title" href="https://t.me/TonMarketIo_bot" target="_blank" rel="noopener noreferrer">TonMarket</a></h3>
+            <h3 data-i18n="case1.title">TonMarket</h3>
             <p class="case__desc" data-i18n="case1.desc">Предикт-маркет в Telegram на TON.</p>
             <div class="case__row"><span class="case__row-label" data-i18n="case.task">Задача</span><span data-i18n="case1.task">Привести игроков на реферальный и квест-ивент с фармом токенов и стейблов.</span></div>
             <div class="case__row"><span class="case__row-label" data-i18n="case.done">Что сделали</span><span data-i18n="case1.done">Взяли 2 канала NFT/GIFTS-тематики, разместили нативные посты с гайдом по ивенту.</span></div>
@@ -228,7 +228,7 @@
           </a>
           <div class="case__body">
             <p class="case__tag" data-i18n="case2.tag">STARS / PREMIUM · ТЕСТ КАНАЛА</p>
-            <h3><a class="case__title-link" data-i18n="case2.title" href="https://t.me/starsnowshop_bot" target="_blank" rel="noopener noreferrer">StarSnow</a></h3>
+            <h3 data-i18n="case2.title">StarSnow</h3>
             <p class="case__desc" data-i18n="case2.desc">Сервис покупки Telegram Stars и Premium.</p>
             <div class="case__row"><span class="case__row-label" data-i18n="case.task">Задача</span><span data-i18n="case2.task">Проверить спрос на сервис покупки Telegram Stars и Premium.</span></div>
             <div class="case__row"><span class="case__row-label" data-i18n="case.done">Что сделали</span><span data-i18n="case2.done">Тестовое размещение на одном канале.</span></div>
@@ -798,7 +798,6 @@
     card.addEventListener('click', e => {
       if (e.target.closest('a')) return;
       if (window.matchMedia('(hover: none)').matches) {
-        if (card.classList.contains('is-open') && e.target.closest('.case__body')) return;
         card.classList.toggle('is-open');
         return;
       }
