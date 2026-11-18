@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=77">
+  <link rel="stylesheet" href="style.css?v=78">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -902,6 +902,51 @@
     }
   }
   </script>
+<script>
+// Scroll reveal: плавное появление блоков при скролле.
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+
+  var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }) : null;
+
+  function reveal(el, delay) {
+    el.classList.add('reveal');
+    if (delay) el.style.setProperty('--reveal-delay', delay + 'ms');
+    if (io) io.observe(el); else el.classList.add('is-in');
+  }
+
+  // Блоки, появляющиеся при скролле. Карточки кейсов имеют свой reveal на мобильных.
+  var sel = '.section__label, .section__title, .about__grid > p, .service, .dao__item, .cases__grid, .cases__note, .pilot__text, .pilot .btn, .contact__text, .contact__links, .contact__foot';
+  var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+  var parents = [];
+  var counts = [];
+  els.forEach(function (el) {
+    var pi = parents.indexOf(el.parentElement);
+    if (pi === -1) { parents.push(el.parentElement); pi = parents.length - 1; }
+    var n = counts[pi] || 0;
+    reveal(el, n * 80);
+    counts[pi] = n + 1;
+  });
+
+  // Hero: каскад при загрузке.
+  var heroEls = document.querySelectorAll('.hero__label, .hero__title, .hero__text, .hero__actions, .hero__stats');
+  heroEls.forEach(function (el, i) {
+    el.classList.add('reveal');
+    el.style.setProperty('--reveal-delay', i * 110 + 'ms');
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { el.classList.add('is-in'); });
+    });
+  });
+})();
+</script>
 <!-- BEGIN PLERDY CODE -->
 <script data-plerdy_code='1'>
 (function(w,d){
