@@ -1,0 +1,12 @@
+# dev files kept outside deploy folder (D:\Download\paranoid-dao-dev)
+preview.html
+primer.jpg
+prev.jpg
+_crop.png
+_make_og.py
+script.js
+*.lnk
+.paranoid-dao-dev/
+node_modules/
+.DS_Store
+Thumbs.db
