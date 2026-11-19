@@ -968,7 +968,7 @@ html[data-theme="light"] .service:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 115% 115% at 50% 50%, color-mix(in srgb, var(--glow, #444) 58%, #000) 0%, #000 100%);
+  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--glow, #444) 58%, #000) 0%, #000 88%);
 }
 .case__thumb--img {
   position: absolute;
@@ -1099,7 +1099,7 @@ html[data-theme="light"] .case {
   box-shadow: 0 18px 48px rgba(0,0,0,.08);
 }
 html[data-theme="light"] .case::before {
-  background: radial-gradient(ellipse 115% 115% at 50% 50%, color-mix(in srgb, var(--glow, #888) 45%, #fff) 0%, #fff 100%);
+  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--glow, #888) 45%, #fff) 0%, #fff 88%);
 }
 html[data-theme="light"] .case__thumb-name {
   color: #0a0a0a;
