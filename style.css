@@ -968,7 +968,7 @@ html[data-theme="light"] .service:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--glow, #444) 55%, #000) 0%, #000 70%);
+  background: radial-gradient(ellipse 115% 115% at 50% 50%, color-mix(in srgb, var(--glow, #444) 58%, #000) 0%, #000 100%);
 }
 .case__thumb--img {
   position: absolute;
@@ -994,7 +994,7 @@ html[data-theme="light"] .service:hover {
   transition: opacity .25s ease;
 }
 .case__thumb--img img {
-  height: 96px;
+  height: 118px;
   width: auto;
   padding: 0;
   border-radius: 0;
@@ -1003,14 +1003,14 @@ html[data-theme="light"] .service:hover {
   position: static;
 }
 .case--stars .case__thumb--img img {
-  width: 96px;
-  height: 96px;
+  width: 118px;
+  height: 118px;
   border-radius: 50%;
   object-fit: cover;
 }
 .case__thumb-name {
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
-  font-size: clamp(38px, 4.8vw, 60px);
+  font-size: clamp(42px, 5.4vw, 68px);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .02em;
@@ -1083,7 +1083,9 @@ html[data-theme="light"] .service:hover {
 
 @media (max-width: 900px) {
   .cases__grid { grid-template-columns: 1fr; }
-  .case__thumb-name { font-size: 34px; }
+  .case__thumb-name { font-size: 36px; }
+  .case__thumb--img img { height: 88px; }
+  .case--stars .case__thumb--img img { width: 88px; height: 88px; }
   .case__body { padding: 22px 22px; }
   .case__row { font-size: 12px; margin-top: 8px; }
   .case__row-label { flex-basis: 64px; font-size: 10px; }
@@ -1097,7 +1099,7 @@ html[data-theme="light"] .case {
   box-shadow: 0 18px 48px rgba(0,0,0,.08);
 }
 html[data-theme="light"] .case::before {
-  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--glow, #888) 40%, #fff) 0%, #fff 70%);
+  background: radial-gradient(ellipse 115% 115% at 50% 50%, color-mix(in srgb, var(--glow, #888) 45%, #fff) 0%, #fff 100%);
 }
 html[data-theme="light"] .case__thumb-name {
   color: #0a0a0a;
