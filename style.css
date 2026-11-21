@@ -909,22 +909,6 @@ html[data-theme="light"] .service:hover {
 }
 .channel-card:hover { border-color: var(--text-dim); transform: translateY(-2px); }
 .channel-card__top { display: flex; align-items: center; gap: 18px; }
-.channel-card__ava-wrap { position: relative; flex: 0 0 auto; margin-top: 12px; }
-.channel-card__badge {
-  position: absolute;
-  top: -10px;
-  left: 2px;
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #fff;
-  background: #2b4a9e;
-  border-radius: 999px;
-  padding: 2px 6px;
-  white-space: nowrap;
-  z-index: 1;
-}
 .channel-card__ava {
   width: 44px;
   height: 44px;
@@ -934,9 +918,16 @@ html[data-theme="light"] .service:hover {
 }
 .channel-card__name { display: block; font-weight: 700; font-size: 15px; }
 .channel-card__niche { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
-.channel-card__platform {
-  display: inline-block;
+.channel-card__tags {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
   margin-top: 6px;
+}
+.channel-card__platform {
+  display: inline-flex;
+  align-items: center;
   font-family: "Courier New", monospace;
   font-size: 10px;
   letter-spacing: 0.08em;
@@ -945,6 +936,33 @@ html[data-theme="light"] .service:hover {
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 2px 8px;
+  line-height: 1.4;
+}
+.channel-card__badge {
+  position: static;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  transform: none;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1.4;
+  background: rgba(58,95,159,.25);
+  color: #8fb4f0;
+  border: 1px solid rgba(143,180,240,.35);
+}
+html[data-theme="light"] .channel-card__badge {
+  background: #e3ecfb;
+  color: #1f4f9f;
+  border-color: rgba(31,79,159,.3);
 }
 .channel-card__stats {
   display: flex;

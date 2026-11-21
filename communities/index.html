@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://paranoidao.xyz/communities/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=100">
+  <link rel="stylesheet" href="../style.css?v=101">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -205,19 +205,9 @@
       card.rel = 'noopener noreferrer';
       const top = document.createElement('div');
       top.className = 'channel-card__top';
-      const avaWrap = document.createElement('div');
-      avaWrap.className = 'channel-card__ava-wrap';
-      if (c.badge) {
-        const badge = document.createElement('span');
-        badge.className = 'channel-card__badge';
-        badge.textContent = 'мой канал';
-        badge.setAttribute('data-i18n', c.badge);
-        avaWrap.appendChild(badge);
-      }
       const img = document.createElement('img');
       img.className = 'channel-card__ava';
       img.src = c.avatar; img.alt = c.name; img.loading = 'lazy';
-      avaWrap.appendChild(img);
       const info = document.createElement('div');
       const name = document.createElement('span');
       name.className = 'channel-card__name';
@@ -228,13 +218,23 @@
       niche.textContent = c.niche;
       niche.setAttribute('data-i18n', c.nicheKey);
       info.append(name, niche);
+      const tags = document.createElement('div');
+      tags.className = 'channel-card__tags';
       if (c.platform) {
         const plat = document.createElement('span');
         plat.className = 'channel-card__platform';
         plat.textContent = c.platform;
-        info.appendChild(plat);
+        tags.appendChild(plat);
       }
-      top.append(avaWrap, info);
+      if (c.badge) {
+        const badge = document.createElement('span');
+        badge.className = 'channel-card__badge';
+        badge.textContent = 'мой канал';
+        badge.setAttribute('data-i18n', c.badge);
+        tags.appendChild(badge);
+      }
+      if (tags.children.length) info.appendChild(tags);
+      top.append(img, info);
       const stats = document.createElement('div');
       stats.className = 'channel-card__stats';
       const s1 = document.createElement('span');
