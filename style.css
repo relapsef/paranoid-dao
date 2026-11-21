@@ -44,6 +44,7 @@ html[data-theme="light"] {
 html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
+  zoom: 0.9;
   overflow-x: clip;
   background: var(--bg);
   color: var(--text);
