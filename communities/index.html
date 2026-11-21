@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://paranoidao.xyz/communities/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=88">
+  <link rel="stylesheet" href="../style.css?v=89">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -100,7 +100,9 @@
     "chan3.name": "Mamkin Kriptan",
     "chan3.niche": "exchange earnings, promos, banks",
     "chan4.niche": "trading & token analytics",
-    "chan5.niche": "NFT, TG gifts & apps"
+    "chan5.niche": "NFT, TG gifts & apps",
+    "chan6.niche": "original content, airdrops",
+    "net.own": "my channel"
   };
 
   const UK = {
@@ -120,7 +122,9 @@
     "chan3.name": "Мамкін Криптан",
     "chan3.niche": "заробіток на біржах, промо, банки",
     "chan4.niche": "трейдинг і аналітика токенів",
-    "chan5.niche": "NFT, TG-подарунки та апки"
+    "chan5.niche": "NFT, TG-подарунки та апки",
+    "chan6.niche": "авторський контент, дропи",
+    "net.own": "мій канал"
   };
 
   const themeToggle = document.getElementById('themeToggle');
@@ -154,7 +158,10 @@
       subs: '48K', reach: '6K', platform: 'Telegram' },
     { name: 'Milky way', avatar: '../Milky_way.jpg', url: 'https://t.me/milkyway_nft',
       niche: 'NFT, TG-подарки и апки', nicheKey: 'chan5.niche',
-      subs: '48K', reach: '6K', platform: 'Telegram' }
+      subs: '48K', reach: '6K', platform: 'Telegram' },
+    { name: 'Crypto Ghoul', avatar: '../ghoul.jpg', url: 'https://t.me/GhoulsInCrypto', badge: 'net.own',
+      niche: 'авторский контент, дропы', nicheKey: 'chan6.niche',
+      subs: '1.2K', reach: '200', platform: 'Telegram' }
   ];
   (function renderChannels() {
     const grid = document.getElementById('channelsGrid');
@@ -167,9 +174,19 @@
       card.rel = 'noopener noreferrer';
       const top = document.createElement('div');
       top.className = 'channel-card__top';
+      const avaWrap = document.createElement('div');
+      avaWrap.className = 'channel-card__ava-wrap';
+      if (c.badge) {
+        const badge = document.createElement('span');
+        badge.className = 'channel-card__badge';
+        badge.textContent = 'мой канал';
+        badge.setAttribute('data-i18n', c.badge);
+        avaWrap.appendChild(badge);
+      }
       const img = document.createElement('img');
       img.className = 'channel-card__ava';
       img.src = c.avatar; img.alt = c.name; img.loading = 'lazy';
+      avaWrap.appendChild(img);
       const info = document.createElement('div');
       const name = document.createElement('span');
       name.className = 'channel-card__name';
@@ -180,7 +197,7 @@
       niche.textContent = c.niche;
       niche.setAttribute('data-i18n', c.nicheKey);
       info.append(name, niche);
-      top.append(img, info);
+      top.append(avaWrap, info);
       const stats = document.createElement('div');
       stats.className = 'channel-card__stats';
       const s1 = document.createElement('span');

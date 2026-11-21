@@ -905,6 +905,23 @@ html[data-theme="light"] .service:hover {
 }
 .channel-card:hover { border-color: var(--text-dim); transform: translateY(-2px); }
 .channel-card__top { display: flex; align-items: center; gap: 12px; }
+.channel-card__ava-wrap { position: relative; flex: 0 0 auto; }
+.channel-card__badge {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #2b4a9e;
+  border-radius: 999px;
+  padding: 2px 7px;
+  white-space: nowrap;
+  z-index: 1;
+}
 .channel-card__ava {
   width: 44px;
   height: 44px;
