@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://paranoidao.xyz/communities/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=94">
+  <link rel="stylesheet" href="../style.css?v=95">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -102,6 +102,8 @@
     "chan4.niche": "trading & token analytics",
     "chan5.niche": "NFT, TG gifts & apps",
     "chan6.niche": "original content, airdrops",
+    "chan7.niche": "airdrops, earnings",
+    "chan7.reachLabel": "views per video",
     "net.own": "my channel"
   };
 
@@ -124,6 +126,8 @@
     "chan4.niche": "трейдинг і аналітика токенів",
     "chan5.niche": "NFT, TG-подарунки та апки",
     "chan6.niche": "авторський контент, дропи",
+    "chan7.niche": "аірдропи, заробіток",
+    "chan7.reachLabel": "переглядів на відео",
     "net.own": "мій канал"
   };
 
@@ -161,7 +165,10 @@
       subs: '48K', reach: '6K', platform: 'Telegram' },
     { name: 'Crypto Ghoul', avatar: '../ghoul.jpg', url: 'https://t.me/GhoulsInCrypto', badge: 'net.own',
       niche: 'авторский контент, дропы', nicheKey: 'chan6.niche',
-      subs: '1.2K', reach: '200', platform: 'Telegram' }
+      subs: '1.2K', reach: '200', platform: 'Telegram' },
+    { name: 'Crypto Drive', avatar: '../Crypto_drive.jpg', url: 'https://youtube.com/@cryptodrive',
+      niche: 'аирдропы, заработок', nicheKey: 'chan7.niche',
+      subs: '3K', reach: '1-2K', reachLabel: 'просмотров на видео', reachKey: 'chan7.reachLabel', platform: 'YouTube' }
   ];
   (function renderChannels() {
     const grid = document.getElementById('channelsGrid');
@@ -197,6 +204,12 @@
       niche.textContent = c.niche;
       niche.setAttribute('data-i18n', c.nicheKey);
       info.append(name, niche);
+      if (c.platform) {
+        const plat = document.createElement('span');
+        plat.className = 'channel-card__platform';
+        plat.textContent = c.platform;
+        info.appendChild(plat);
+      }
       top.append(avaWrap, info);
       const stats = document.createElement('div');
       stats.className = 'channel-card__stats';
@@ -204,8 +217,11 @@
       s1.innerHTML = '<b></b> <i data-i18n="net.subs">подписчиков</i>';
       s1.querySelector('b').textContent = c.subs;
       const s2 = document.createElement('span');
-      s2.innerHTML = '<b></b> <i data-i18n="net.reach">ср. охват</i>';
+      s2.innerHTML = '<b></b> <i></i>';
       s2.querySelector('b').textContent = c.reach;
+      const reachLabel = s2.querySelector('i');
+      reachLabel.textContent = c.reachLabel || 'ср. охват';
+      reachLabel.setAttribute('data-i18n', c.reachKey || 'net.reach');
       stats.append(s1, s2);
       card.append(top, stats);
       grid.appendChild(card);
