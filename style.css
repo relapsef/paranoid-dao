@@ -609,19 +609,6 @@ html[data-theme="light"] .planet__spin {
 }
 .bento__stats { font-size: 13px; font-weight: 600; color: #e8e8e4; }
 .bento__note { font-size: 12.5px; color: #9a9a94; }
-.bento--cta {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #2b4a9e;
-  border: 0;
-  text-decoration: none;
-  transition: background .2s ease;
-}
-.bento--cta:hover { background: #3458b5; }
-.bento__cta-text { font-size: 17px; font-weight: 700; color: #fff; }
-
 html[data-theme="light"] .bento { background: #fff; border-color: rgba(0,0,0,.12); --glow-alpha: 20%; }
 html[data-theme="light"] .bento__num,
 html[data-theme="light"] .bento__name { color: #0a0a0a; }
@@ -629,9 +616,6 @@ html[data-theme="light"] .bento__sub,
 html[data-theme="light"] .bento__note { color: #6a6a64; }
 html[data-theme="light"] .bento__stats { color: #1a1a1a; }
 html[data-theme="light"] .bento__foot { border-top-color: rgba(0,0,0,.12); }
-html[data-theme="light"] .bento--cta { background: #e3ecfb; }
-html[data-theme="light"] .bento--cta:hover { background: #d5e2f8; }
-html[data-theme="light"] .bento__cta-text { color: #1f4f9f; }
 
 @media (max-width: 640px) {
   .cases__bento { grid-template-columns: 1fr; }

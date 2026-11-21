@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=82">
+  <link rel="stylesheet" href="style.css?v=83">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -345,7 +345,6 @@
     "case1.note": "2 channels, native posts",
     "case2.stats": "$145 · CPL ~$1.4",
     "case2.note": "5 placements on 2 channels",
-    "cases.cta": "Your project? Pilot from $100",
     "case.hover": "Hover for details",
     "case.tap": "Tap for details",
 
@@ -442,7 +441,6 @@
     "case1.note": "2 канали, нативні пости",
     "case2.stats": "$145 · CPL ~$1,4",
     "case2.note": "5 розміщень на 2 каналах",
-    "cases.cta": "Ваш проєкт? Пілот від $100",
     "case.hover": "Наведіть для деталей",
     "case.tap": "Торкніться для деталей",
 
@@ -512,11 +510,6 @@
       cell.append(glow, head, users, foot);
       grid.appendChild(cell);
     });
-    // CTA на всю ширину
-    const cta = mk('a', 'bento bento--cta', null);
-    cta.href = '#pilot';
-    cta.appendChild(mk('span', 'bento__cta-text', 'Ваш проект? Пилот от $100', 'cases.cta'));
-    grid.appendChild(cta);
   })();
 
   // Сохраняем оригинальные (русские) тексты при загрузке.
