@@ -877,3 +877,52 @@ html[data-theme="light"] .service:hover {
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* ---------- Communities: channel cards ---------- */
+.channels__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin-top: 32px;
+}
+.channel-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .2s, transform .2s;
+}
+.channel-card:hover { border-color: var(--text-dim); transform: translateY(-2px); }
+.channel-card__top { display: flex; align-items: center; gap: 12px; }
+.channel-card__ava {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+.channel-card__name { display: block; font-weight: 700; font-size: 15px; }
+.channel-card__niche { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.channel-card__stats {
+  display: flex;
+  gap: 18px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.channel-card__stats b { color: var(--text); font-weight: 700; }
+.channel-card__stats i { font-style: normal; }
+.channels__note {
+  margin-top: 24px;
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+@media (max-width: 640px) {
+  .channels__grid { grid-template-columns: 1fr; }
+}

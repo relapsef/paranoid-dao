@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://paranoidao.xyz/communities/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=83">
+  <link rel="stylesheet" href="../style.css?v=84">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -45,15 +45,12 @@
   </section>
 
   <section class="section">
-    <div class="container" style="text-align:center; padding: 60px 0 100px;">
-      <p class="section__label" data-i18n="net.status">// статус</p>
-      <h2 class="section__title" style="margin-bottom: 24px;" data-i18n="net.soon">Раздел в разработке.</h2>
-      <p style="color: var(--text-dim); font-size: 17px; max-width: 480px; margin: 0 auto;" data-i18n="net.text">
-        Мы собираем и проверяем список из 250+ крипто и AI-комьюнити.
-        Скоро здесь появятся каналы по Telegram, X и YouTube.
-      </p>
-      <div style="margin-top: 40px;">
-        <a href="https://t.me/paranoiddao_mirror" target="_blank" rel="noopener" class="btn">Telegram</a>
+    <div class="container">
+      <p class="section__label" data-i18n="net.gridLabel">// примеры из сети</p>
+      <div class="channels__grid" id="channelsGrid"></div>
+      <p class="channels__note" data-i18n="net.note">Показаны примеры из сети. Полная база — 250+ крипто и AI-комьюнити, список каналов по запросу.</p>
+      <div style="text-align:center; margin-top: 32px;">
+        <a href="https://t.me/paranoiddao_mirror" target="_blank" rel="noopener" class="btn" data-i18n="net.btn">Запросить список каналов</a>
       </div>
     </div>
   </section>
@@ -92,7 +89,13 @@
     "net.title": "Our community<br>network.",
     "net.status": "// status",
     "net.soon": "Coming soon.",
-    "net.text": "We're compiling and verifying a list of 250+ crypto and AI communities. Telegram, X and YouTube channels will appear here soon."
+    "net.text": "We're compiling and verifying a list of 250+ crypto and AI communities. Telegram, X and YouTube channels will appear here soon.",
+    "net.gridLabel": "// network examples",
+    "net.note": "Examples from the network. The full base is 250+ crypto and AI communities — channel list on request.",
+    "net.btn": "Request the channel list",
+    "net.subs": "subs",
+    "net.reach": "avg reach",
+    "chan1.niche": "airdrops + original posts"
   };
 
   const UK = {
@@ -101,7 +104,13 @@
     "net.title": "Наша мережа<br>ком'юніті.",
     "net.status": "// статус",
     "net.soon": "Розділ у розробці.",
-    "net.text": "Ми збираємо та перевіряємо список із 250+ крипто- та AI-ком'юніті. Незабаром тут з'являться канали в Telegram, X та YouTube."
+    "net.text": "Ми збираємо та перевіряємо список із 250+ крипто- та AI-ком'юніті. Незабаром тут з'являться канали в Telegram, X та YouTube.",
+    "net.gridLabel": "// приклади з мережі",
+    "net.note": "Приклади з мережі. Повна база — 250+ крипто- та AI-ком'юніті, список каналів на запит.",
+    "net.btn": "Запросити список каналів",
+    "net.subs": "підписників",
+    "net.reach": "сер. охоплення",
+    "chan1.niche": "аірдропи + авторські пости"
   };
 
   const themeToggle = document.getElementById('themeToggle');
@@ -118,6 +127,50 @@
       applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
     });
   }
+
+  // Каналы сети: карточки рендерятся из массива. Новый канал = одна строка.
+  const CHANNELS = [
+    { name: 'Gem Research', avatar: '../gem_research.jpg', url: 'https://t.me/gemresearch',
+      niche: 'аирдропы + авторские посты', nicheKey: 'chan1.niche',
+      subs: '30K', reach: '3K', platform: 'Telegram' }
+  ];
+  (function renderChannels() {
+    const grid = document.getElementById('channelsGrid');
+    if (!grid) return;
+    CHANNELS.forEach(c => {
+      const card = document.createElement('a');
+      card.className = 'channel-card';
+      card.href = c.url;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      const top = document.createElement('div');
+      top.className = 'channel-card__top';
+      const img = document.createElement('img');
+      img.className = 'channel-card__ava';
+      img.src = c.avatar; img.alt = c.name; img.loading = 'lazy';
+      const info = document.createElement('div');
+      const name = document.createElement('span');
+      name.className = 'channel-card__name';
+      name.textContent = c.name;
+      const niche = document.createElement('span');
+      niche.className = 'channel-card__niche';
+      niche.textContent = c.niche;
+      niche.setAttribute('data-i18n', c.nicheKey);
+      info.append(name, niche);
+      top.append(img, info);
+      const stats = document.createElement('div');
+      stats.className = 'channel-card__stats';
+      const s1 = document.createElement('span');
+      s1.innerHTML = '<b></b> <i data-i18n="net.subs">подписчиков</i>';
+      s1.querySelector('b').textContent = c.subs;
+      const s2 = document.createElement('span');
+      s2.innerHTML = '<b></b> <i data-i18n="net.reach">ср. охват</i>';
+      s2.querySelector('b').textContent = c.reach;
+      stats.append(s1, s2);
+      card.append(top, stats);
+      grid.appendChild(card);
+    });
+  })();
 
   const i18nEls = [...document.querySelectorAll('[data-i18n], [data-i18n-html]')];
   const original = new Map(i18nEls.map(el => {
