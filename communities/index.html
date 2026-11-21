@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://paranoidao.xyz/communities/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=102">
+  <link rel="stylesheet" href="../style.css?v=103">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -38,17 +38,24 @@
   </header>
 
   <section class="page-hero">
-    <div class="container">
-      <p class="section__label" data-i18n="net.label">// сеть агентства</p>
-      <h1 class="page-hero__title" data-i18n-html="net.title">Наша сеть<br>комьюнити.</h1>
+    <div class="container page-hero__inner">
+      <div class="page-hero__text">
+        <p class="section__label" data-i18n="net.label">// сеть агентства</p>
+        <h1 class="page-hero__title" data-i18n="net.title">Наша сеть каналов</h1>
+        <div class="page-hero__stats" id="heroStats"></div>
+      </div>
+      <a href="https://t.me/relapseqq" target="_blank" rel="noopener" class="btn page-hero__cta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+        <span data-i18n="net.btn">Запросить список каналов</span>
+      </a>
     </div>
   </section>
 
-  <section class="section" style="padding-top: 28px;">
+  <section class="section" style="padding-top: 24px; padding-bottom: 72px;">
     <div class="container">
       <p class="section__label" data-i18n="net.gridLabel">// примеры сообществ</p>
       <div class="channels__grid" id="channelsGrid"></div>
-      <div style="text-align:center; margin-top: 56px;">
+      <div style="text-align:center; margin-top: 32px;">
         <a href="https://t.me/relapseqq" target="_blank" rel="noopener" class="btn" data-i18n="net.btn">Запросить список каналов</a>
       </div>
     </div>
@@ -85,7 +92,7 @@
   const EN = {
     "nav.home": "← Home",
     "net.label": "// agency network",
-    "net.title": "Our community<br>network.",
+    "net.title": "Our community network",
     "net.status": "// status",
     "net.soon": "Coming soon.",
     "net.text": "We're compiling and verifying a list of 300+ crypto and AI communities. Telegram, X and YouTube channels will appear here soon.",
@@ -106,13 +113,16 @@
     "chan8.reachLabel": "avg views per video",
     "chanMore.title": "and more…",
     "chanMore.niche": "full base of 300+ communities — list on request",
+    "chanMore.btn": "Request list",
+    "net.statCommunities": "communities",
+    "net.statSubs": "subscribers",
     "net.own": "my channel"
   };
 
   const UK = {
     "nav.home": "← На головну",
     "net.label": "// мережа агентства",
-    "net.title": "Наша мережа<br>ком'юніті.",
+    "net.title": "Наша мережа каналів",
     "net.status": "// статус",
     "net.soon": "Розділ у розробці.",
     "net.text": "Ми збираємо та перевіряємо список із 300+ крипто- та AI-ком'юніті. Незабаром тут з'являться канали в Telegram, X та YouTube.",
@@ -133,6 +143,9 @@
     "chan8.reachLabel": "сер. переглядів на відео",
     "chanMore.title": "та інші…",
     "chanMore.niche": "повна база 300+ ком'юніті — список на запит",
+    "chanMore.btn": "Запросити список",
+    "net.statCommunities": "ком'юніті",
+    "net.statSubs": "підписників",
     "net.own": "мій канал"
   };
 
@@ -150,6 +163,31 @@
       applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
     });
   }
+
+  // Цифры hero: меняются в одном месте.
+  const NET_STATS = [
+    { num: '300+', label: 'комьюнити', key: 'net.statCommunities' },
+    { num: '500K+', label: 'подписчиков', key: 'net.statSubs' },
+    { num: 'Telegram, YouTube, X', label: null, key: null }
+  ];
+  (function renderHeroStats() {
+    const box = document.getElementById('heroStats');
+    if (!box) return;
+    NET_STATS.forEach(s => {
+      const sp = document.createElement('span');
+      sp.className = 'ph-stat';
+      const b = document.createElement('b');
+      b.textContent = s.num;
+      sp.appendChild(b);
+      if (s.label) {
+        const i = document.createElement('i');
+        i.textContent = s.label;
+        i.setAttribute('data-i18n', s.key);
+        sp.appendChild(i);
+      }
+      box.appendChild(sp);
+    });
+  })();
 
   // Каналы сети: карточки рендерятся из массива. Новый канал = одна строка.
   const CHANNELS = [
@@ -194,7 +232,14 @@
         n.className = 'channel-card__more-niche';
         n.textContent = 'полная база 300+ комьюнити — список по запросу';
         n.setAttribute('data-i18n', 'chanMore.niche');
-        tile.append(t, n);
+        const moreBtn = document.createElement('a');
+        moreBtn.className = 'channel-card__more-btn';
+        moreBtn.href = 'https://t.me/relapseqq';
+        moreBtn.target = '_blank';
+        moreBtn.rel = 'noopener noreferrer';
+        moreBtn.textContent = 'Запросить список';
+        moreBtn.setAttribute('data-i18n', 'chanMore.btn');
+        tile.append(t, n, moreBtn);
         grid.appendChild(tile);
         return;
       }

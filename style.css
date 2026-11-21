@@ -755,17 +755,42 @@ html[data-theme="light"] .service:hover {
 
 /* ---------- Communities page ---------- */
 .page-hero {
-  padding: 104px 0 56px;
+  padding: 88px 0 32px;
   border-bottom: 1px solid var(--line);
   text-align: left;
 }
 .page-hero .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.page-hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
 .page-hero__title {
-  font-size: clamp(44px, 8vw, 92px);
+  font-size: clamp(32px, 5vw, 56px);
   font-weight: 900;
-  line-height: 0.98;
+  line-height: 1;
   text-transform: uppercase;
   letter-spacing: -0.02em;
+}
+.page-hero__stats {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  color: var(--muted);
+}
+.ph-stat b { color: var(--text); font-weight: 700; margin-right: 6px; }
+.ph-stat i { font-style: normal; }
+.page-hero__cta {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
 }
 .channels__group {
   border: 1px solid var(--line);
@@ -983,6 +1008,21 @@ html[data-theme="light"] .channel-card__badge {
 .channel-card--more:hover { transform: none; border-color: var(--line); }
 .channel-card__more-title { font-size: 20px; font-weight: 800; color: var(--text); }
 .channel-card__more-niche { font-size: 12.5px; color: var(--muted); }
+.channel-card__more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  padding: 7px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color .2s, background .2s;
+}
+.channel-card__more-btn:hover { border-color: var(--text-dim); background: var(--panel); }
 .channels__note {
   margin-top: 44px;
   text-align: center;
@@ -992,4 +1032,7 @@ html[data-theme="light"] .channel-card__badge {
 }
 @media (max-width: 640px) {
   .channels__grid { grid-template-columns: 1fr; }
+  .channel-card { padding: 12px; }
+  .page-hero__inner { flex-direction: column; align-items: flex-start; }
+  .page-hero__cta { width: 100%; justify-content: center; }
 }
