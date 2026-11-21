@@ -758,7 +758,7 @@ html[data-theme="light"] .service:hover {
   border-bottom: 1px solid var(--line);
   text-align: left;
 }
-.page-hero .container { padding-left: 8px; }
+.page-hero .container { padding-left: 24px; }
 .page-hero__title {
   font-size: clamp(44px, 8vw, 92px);
   font-weight: 900;
