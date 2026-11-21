@@ -18,7 +18,7 @@ Plain HTML/CSS/JS. No build step, no dependencies.
 
 ## Contacts
 
-Telegram: [@paranoidao](https://t.me/paranoidao) · [@relapseqq](https://t.me/relapseqq)
+Telegram: [@paranoiddao_mirror](https://t.me/paranoiddao_mirror) · [@relapseqq](https://t.me/relapseqq)
 X: [@shikigamiWW](https://x.com/shikigamiWW) · mashiros17s@gmail.com
 
 © Paranoid DAO
