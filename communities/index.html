@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://paranoidao.xyz/communities/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=95">
+  <link rel="stylesheet" href="../style.css?v=96">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -106,6 +106,8 @@
     "chan7.reachLabel": "views per video",
     "chan8.niche": "crypto education, investing, guides",
     "chan8.reachLabel": "avg views per video",
+    "chanMore.title": "and more…",
+    "chanMore.niche": "full base of 300+ communities — list on request",
     "net.own": "my channel"
   };
 
@@ -132,6 +134,8 @@
     "chan7.reachLabel": "переглядів на відео",
     "chan8.niche": "крипто-навчання, інвестиції, гайди",
     "chan8.reachLabel": "сер. переглядів на відео",
+    "chanMore.title": "та інші…",
+    "chanMore.niche": "повна база 300+ ком'юніті — список на запит",
     "net.own": "мій канал"
   };
 
@@ -175,12 +179,28 @@
       subs: '3K', reach: '1-2K', reachLabel: 'просмотров на видео', reachKey: 'chan7.reachLabel', platform: 'YouTube' },
     { name: 'Crypto Genius', avatar: '../genius.jpg', url: 'https://www.youtube.com/@ggenius_o_kripte',
       niche: 'крипто-обучение, инвестиции, гайды', nicheKey: 'chan8.niche',
-      subs: '25K', reach: '20K', reachLabel: 'ср. просмотров на видео', reachKey: 'chan8.reachLabel', platform: 'YouTube' }
+      subs: '25K', reach: '20K', reachLabel: 'ср. просмотров на видео', reachKey: 'chan8.reachLabel', platform: 'YouTube' },
+    { more: true }
   ];
   (function renderChannels() {
     const grid = document.getElementById('channelsGrid');
     if (!grid) return;
     CHANNELS.forEach(c => {
+      if (c.more) {
+        const tile = document.createElement('div');
+        tile.className = 'channel-card channel-card--more';
+        const t = document.createElement('span');
+        t.className = 'channel-card__more-title';
+        t.textContent = 'и другие…';
+        t.setAttribute('data-i18n', 'chanMore.title');
+        const n = document.createElement('span');
+        n.className = 'channel-card__more-niche';
+        n.textContent = 'полная база 300+ комьюнити — список по запросу';
+        n.setAttribute('data-i18n', 'chanMore.niche');
+        tile.append(t, n);
+        grid.appendChild(tile);
+        return;
+      }
       const card = document.createElement('a');
       card.className = 'channel-card';
       card.href = c.url;
