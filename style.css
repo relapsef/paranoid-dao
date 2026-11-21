@@ -758,7 +758,7 @@ html[data-theme="light"] .service:hover {
   border-bottom: 1px solid var(--line);
   text-align: left;
 }
-.page-hero .container { padding-left: 24px; }
+.page-hero .container { max-width: none; padding: 0 28px; }
 .page-hero__title {
   font-size: clamp(44px, 8vw, 92px);
   font-weight: 900;
@@ -839,6 +839,7 @@ html[data-theme="light"] .service:hover {
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .header__inner { padding: 0 14px; }
+  .page-hero .container { padding: 0 14px; }
   .header__actions { gap: 8px; }
   .burger { width: 32px; height: 32px; padding: 7px 8px; }
   .theme-toggle { width: 32px; height: 32px; }
