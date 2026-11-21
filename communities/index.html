@@ -96,7 +96,9 @@
     "net.subs": "subs",
     "net.reach": "avg reach",
     "chan1.niche": "airdrops + original posts",
-    "chan2.niche": "exchange promos & alpha calls"
+    "chan2.niche": "exchange promos & alpha calls",
+    "chan3.name": "Mamkin Kriptan",
+    "chan3.niche": "exchange earnings, promos, banks"
   };
 
   const UK = {
@@ -112,7 +114,9 @@
     "net.subs": "підписників",
     "net.reach": "сер. охоплення",
     "chan1.niche": "аірдропи + авторські пости",
-    "chan2.niche": "промки бірж і темки"
+    "chan2.niche": "промки бірж і темки",
+    "chan3.name": "Мамкін Криптан",
+    "chan3.niche": "заробіток на біржах, промо, банки"
   };
 
   const themeToggle = document.getElementById('themeToggle');
@@ -137,7 +141,10 @@
       subs: '30K', reach: '3K', platform: 'Telegram' },
     { name: 'Темщики CRYPTO', avatar: '../temchik.jpg', url: 'https://t.me/+uBkKPhFqDSMyZmNi',
       niche: 'промки бирж и темки', nicheKey: 'chan2.niche',
-      subs: '41K', reach: '4K', platform: 'Telegram' }
+      subs: '41K', reach: '4K', platform: 'Telegram' },
+    { name: 'Мамкин Криптан', nameKey: 'chan3.name', avatar: '../mk_crypto.jpg', url: 'https://t.me/mamkin_kriptan',
+      niche: 'заработок на биржах, промо, банки', nicheKey: 'chan3.niche',
+      subs: '22K', reach: '2K', platform: 'Telegram' }
   ];
   (function renderChannels() {
     const grid = document.getElementById('channelsGrid');
@@ -157,6 +164,7 @@
       const name = document.createElement('span');
       name.className = 'channel-card__name';
       name.textContent = c.name;
+      if (c.nameKey) name.setAttribute('data-i18n', c.nameKey);
       const niche = document.createElement('span');
       niche.className = 'channel-card__niche';
       niche.textContent = c.niche;
