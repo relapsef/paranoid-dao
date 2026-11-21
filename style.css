@@ -596,7 +596,13 @@ html[data-theme="light"] .planet__spin {
 }
 .bento__side--right { text-align: right; }
 .bento__head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.bento__head img { width: 30px; height: 30px; object-fit: contain; flex: 0 0 auto; }
+.bento__head img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
 .bento__name { font-size: 15.5px; font-weight: 700; color: #fff; text-decoration: none; }
 .bento__name:hover { text-decoration: underline; }
 .bento__users { margin: 10px 0 14px; }
