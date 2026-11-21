@@ -923,7 +923,7 @@ html[data-theme="light"] .service:hover {
 .channel-card__stats b { color: var(--text); font-weight: 700; }
 .channel-card__stats i { font-style: normal; }
 .channels__note {
-  margin-top: 22px;
+  margin-top: 44px;
   text-align: center;
   font-family: "Courier New", monospace;
   font-size: 13px;
