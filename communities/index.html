@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://paranoidao.xyz/communities/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=103">
+  <link rel="stylesheet" href="../style.css?v=104">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="../favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -113,7 +113,6 @@
     "chan8.reachLabel": "avg views per video",
     "chanMore.title": "and more…",
     "chanMore.niche": "full base of 300+ communities — list on request",
-    "chanMore.btn": "Request list",
     "net.statCommunities": "communities",
     "net.statSubs": "subscribers",
     "net.own": "my channel"
@@ -143,7 +142,6 @@
     "chan8.reachLabel": "сер. переглядів на відео",
     "chanMore.title": "та інші…",
     "chanMore.niche": "повна база 300+ ком'юніті — список на запит",
-    "chanMore.btn": "Запросити список",
     "net.statCommunities": "ком'юніті",
     "net.statSubs": "підписників",
     "net.own": "мій канал"
@@ -232,14 +230,7 @@
         n.className = 'channel-card__more-niche';
         n.textContent = 'полная база 300+ комьюнити — список по запросу';
         n.setAttribute('data-i18n', 'chanMore.niche');
-        const moreBtn = document.createElement('a');
-        moreBtn.className = 'channel-card__more-btn';
-        moreBtn.href = 'https://t.me/relapseqq';
-        moreBtn.target = '_blank';
-        moreBtn.rel = 'noopener noreferrer';
-        moreBtn.textContent = 'Запросить список';
-        moreBtn.setAttribute('data-i18n', 'chanMore.btn');
-        tile.append(t, n, moreBtn);
+        tile.append(t, n);
         grid.appendChild(tile);
         return;
       }

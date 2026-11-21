@@ -1008,21 +1008,6 @@ html[data-theme="light"] .channel-card__badge {
 .channel-card--more:hover { transform: none; border-color: var(--line); }
 .channel-card__more-title { font-size: 20px; font-weight: 800; color: var(--text); }
 .channel-card__more-niche { font-size: 12.5px; color: var(--muted); }
-.channel-card__more-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 6px;
-  padding: 7px 16px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--text);
-  text-decoration: none;
-  transition: border-color .2s, background .2s;
-}
-.channel-card__more-btn:hover { border-color: var(--text-dim); background: var(--panel); }
 .channels__note {
   margin-top: 44px;
   text-align: center;
