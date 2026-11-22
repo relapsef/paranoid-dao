@@ -206,7 +206,7 @@
         </div>
       </div>
       <div class="cases__bento" id="casesBento"></div>
-      <p class="cases__note" data-i18n="cases.note">Результаты тестовых кампаний: 2 кейса, $265 бюджета, 170+ пользователей, средний CPL ≈ $1,8. Готовы работать и с крупными офферами.</p>
+      <p class="cases__note" data-i18n="cases.note">Результаты тестовых кампаний: 2 кейса, $265 бюджета, 170+ пользователей, средний CPL ≈ $1,6. Готовы работать и с крупными офферами.</p>
     </div>
   </section>
 
@@ -337,13 +337,13 @@
     "case2.done": "First test on one channel, then scaled up: 5 placements across 2 channels.",
     "case2.result": "100+ new users, with real Telegram Stars purchases.",
     "case2.budget": "$145.",
-    "cases.note": "Test campaign results: 2 cases, $265 budget, 170+ users, average CPL ≈ $1.8. Ready for larger offers too.",
+    "cases.note": "Test campaign results: 2 cases, $265 budget, 170+ users, average CPL ≈ $1.6. Ready for larger offers too.",
     "cases.totalLabel": "users from 2 tests",
-    "cases.totalBudget": "total budget · CPL ~$1.8",
+    "cases.totalBudget": "total budget · CPL ~$1.6",
     "cases.usersLabel": "new users",
-    "case1.stats": "$120 · CPL ~$2.4",
+    "case1.stats": "$120 · CPL ~$1.7",
     "case1.note": "2 channels, native posts",
-    "case2.stats": "$145 · CPL ~$1.4",
+    "case2.stats": "$145 · CPL ~$1.2",
     "case2.note": "3 channels: native post + footer mentions",
     "case.hover": "Hover for details",
     "case.tap": "Tap for details",
@@ -433,13 +433,13 @@
     "case2.done": "Перший тест на одному каналі, потім добір реклами: 5 розміщень на 2 каналах.",
     "case2.result": "100+ нових користувачів, були покупки Telegram Stars.",
     "case2.budget": "$145.",
-    "cases.note": "Результати тестових кампаній: 2 кейси, $265 бюджету, 170+ користувачів, середній CPL ≈ $1,8. Готові працювати і з великими офферами.",
+    "cases.note": "Результати тестових кампаній: 2 кейси, $265 бюджету, 170+ користувачів, середній CPL ≈ $1,6. Готові працювати і з великими офферами.",
     "cases.totalLabel": "користувачів за 2 тести",
-    "cases.totalBudget": "загальний бюджет · CPL ~$1,8",
+    "cases.totalBudget": "загальний бюджет · CPL ~$1,6",
     "cases.usersLabel": "нових користувачів",
-    "case1.stats": "$120 · CPL ~$2,4",
+    "case1.stats": "$120 · CPL ~$1,7",
     "case1.note": "2 канали, нативні пости",
-    "case2.stats": "$145 · CPL ~$1,4",
+    "case2.stats": "$145 · CPL ~$1,2",
     "case2.note": "3 канали: нативний пост і футери",
     "case.hover": "Наведіть для деталей",
     "case.tap": "Торкніться для деталей",
@@ -468,10 +468,10 @@
   // Кейсы: bento-сетка. Новый кейс = одна строка в CASES_DATA.
   const CASES_DATA = [
     { name: 'TonMarket', icon: 'tonmarket-icon.png', url: 'https://t.me/TonMarketIo_bot',
-      users: '~50', stats: '$120 · CPL ~$2,4', note: '2 канала, нативные посты',
+      users: '70+', stats: '$120 · CPL ~$1,7', note: '2 канала, нативные посты',
       statsKey: 'case1.stats', noteKey: 'case1.note', glow: '#3a5f9f' },
     { name: 'StarSnow', icon: 'starsnow-new.jpg', url: 'https://t.me/starsnowshop_bot',
-      users: '120+', stats: '$145 · CPL ~$1,4', note: '3 канала: нативный пост и футеры',
+      users: '120+', stats: '$145 · CPL ~$1,2', note: '3 канала: нативный пост и футеры',
       statsKey: 'case2.stats', noteKey: 'case2.note', glow: '#aa8232' }
   ];
   (function renderCases() {
@@ -489,7 +489,7 @@
     const l = mk('div', 'bento__side');
     l.append(mk('span', 'bento__num', '170+'), mk('span', 'bento__sub', 'пользователей за 2 теста', 'cases.totalLabel'));
     const r = mk('div', 'bento__side bento__side--right');
-    r.append(mk('span', 'bento__num', '$265'), mk('span', 'bento__sub', 'общий бюджет · CPL ~$1,8', 'cases.totalBudget'));
+    r.append(mk('span', 'bento__num', '$265'), mk('span', 'bento__sub', 'общий бюджет · CPL ~$1,6', 'cases.totalBudget'));
     total.append(l, r);
     grid.appendChild(total);
     // Ячейки кейсов
