@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=104">
+  <link rel="stylesheet" href="style.css?v=105">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -206,7 +206,7 @@
         </div>
       </div>
       <div class="cases__bento" id="casesBento"></div>
-      <p class="cases__note" data-i18n="cases.note">Результаты тестовых кампаний: 2 кейса, $265 бюджета, 190+ пользователей, средний CPL $1-2. Готовы работать и с крупными офферами.</p>
+      <p class="cases__note" data-i18n="cases.note">Тестовые кампании: 190+ пользователей при бюджете $265, средний CPL $1-2. Параллельно идет медиаплан на $1375.</p>
     </div>
   </section>
 
@@ -337,7 +337,7 @@
     "case2.done": "First test on one channel, then scaled up: 5 placements across 2 channels.",
     "case2.result": "100+ new users, with real Telegram Stars purchases.",
     "case2.budget": "$145.",
-    "cases.note": "Test campaign results: 2 cases, $265 budget, 190+ users, average CPL $1-2. Ready for larger offers too.",
+    "cases.note": "Test campaigns: 190+ users on a $265 budget, average CPL $1-2. A $1,375 media plan is running in parallel.",
     "cases.totalLabel": "users from 2 tests",
     "cases.totalBudget": "total budget · CPL ~$1.6",
     "cases.usersLabel": "new users",
@@ -345,6 +345,9 @@
     "case1.note": "2 channels, native posts",
     "case2.stats": "$145 · CPL ~$1.2",
     "case2.note": "3 channels: native post + footer mentions",
+    "case3.usersLabel": "channels in media plan",
+    "case3.stats": "$1,375 · CPL —",
+    "case3.note": "campaign in progress",
     "case.hover": "Hover for details",
     "case.tap": "Tap for details",
 
@@ -433,7 +436,7 @@
     "case2.done": "Перший тест на одному каналі, потім добір реклами: 5 розміщень на 2 каналах.",
     "case2.result": "100+ нових користувачів, були покупки Telegram Stars.",
     "case2.budget": "$145.",
-    "cases.note": "Результати тестових кампаній: 2 кейси, $265 бюджету, 190+ користувачів, середній CPL $1-2. Готові працювати і з великими офферами.",
+    "cases.note": "Тестові кампанії: 190+ користувачів при бюджеті $265, середній CPL $1-2. Паралельно йде медіаплан на $1375.",
     "cases.totalLabel": "користувачів за 2 тести",
     "cases.totalBudget": "загальний бюджет · CPL ~$1,6",
     "cases.usersLabel": "нових користувачів",
@@ -441,6 +444,9 @@
     "case1.note": "2 канали, нативні пости",
     "case2.stats": "$145 · CPL ~$1,2",
     "case2.note": "3 канали: нативний пост і футери",
+    "case3.usersLabel": "каналів у медіаплані",
+    "case3.stats": "$1 375 · CPL —",
+    "case3.note": "кампанія в роботі",
     "case.hover": "Наведіть для деталей",
     "case.tap": "Торкніться для деталей",
 
@@ -472,7 +478,11 @@
       statsKey: 'case1.stats', noteKey: 'case1.note', glow: '#3a5f9f' },
     { name: 'StarSnow', icon: 'starsnow-new.jpg', url: 'https://t.me/starsnowshop_bot',
       users: '120+', stats: '$145 · CPL ~$1,2', note: '3 канала: нативный пост и футеры',
-      statsKey: 'case2.stats', noteKey: 'case2.note', glow: '#aa8232' }
+      statsKey: 'case2.stats', noteKey: 'case2.note', glow: '#aa8232' },
+    { name: 'Casa Exchange', icon: null, url: null,
+      users: '9', usersLabel: 'каналов в медиаплане', usersKey: 'case3.usersLabel',
+      stats: '$1 375 · CPL —', note: 'кампания в работе',
+      statsKey: 'case3.stats', noteKey: 'case3.note', glow: '#3a8f5f' }
   ];
   (function renderCases() {
     const grid = document.getElementById('casesBento');
@@ -498,13 +508,20 @@
       cell.style.setProperty('--glow', c.glow);
       const glow = mk('div', 'bento__glow');
       const head = mk('div', 'bento__head');
-      const img = document.createElement('img');
-      img.src = c.icon; img.alt = c.name; img.loading = 'lazy';
-      const a = mk('a', 'bento__name', c.name);
-      a.href = c.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-      head.append(img, a);
+      if (c.icon) {
+        const img = document.createElement('img');
+        img.src = c.icon; img.alt = c.name; img.loading = 'lazy';
+        head.appendChild(img);
+      } else {
+        const mono = mk('span', 'bento__mono', c.name.split(' ').map(w => w[0]).join('').slice(0, 2));
+        head.appendChild(mono);
+      }
+      const nameEl = c.url ? mk('a', 'bento__name', c.name) : mk('span', 'bento__name', c.name);
+      if (c.url) { nameEl.href = c.url; nameEl.target = '_blank'; nameEl.rel = 'noopener noreferrer'; }
+      head.appendChild(nameEl);
       const users = mk('div', 'bento__users');
-      users.append(mk('span', 'bento__num', c.users), mk('span', 'bento__sub', 'новых пользователей', 'cases.usersLabel'));
+      users.append(mk('span', 'bento__num', c.users),
+        mk('span', 'bento__sub', c.usersLabel || 'новых пользователей', c.usersKey || 'cases.usersLabel'));
       const foot = mk('div', 'bento__foot');
       foot.append(mk('span', 'bento__stats', c.stats, c.statsKey), mk('span', 'bento__note', c.note, c.noteKey));
       cell.append(glow, head, users, foot);

@@ -604,6 +604,20 @@ html[data-theme="light"] .planet__spin {
   object-fit: cover;
   flex: 0 0 auto;
 }
+.bento__mono {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.18);
+}
 .bento__name { font-size: 15.5px; font-weight: 700; color: #fff; text-decoration: none; }
 .bento__name:hover { text-decoration: underline; }
 .bento__users { margin: 10px 0 14px; }
@@ -622,6 +636,11 @@ html[data-theme="light"] .bento__name { color: #0a0a0a; }
 html[data-theme="light"] .bento__sub,
 html[data-theme="light"] .bento__note { color: #6a6a64; }
 html[data-theme="light"] .bento__stats { color: #1a1a1a; }
+html[data-theme="light"] .bento__mono {
+  background: rgba(0,0,0,.06);
+  border-color: rgba(0,0,0,.14);
+  color: #0a0a0a;
+}
 html[data-theme="light"] .bento__foot { border-top-color: rgba(0,0,0,.12); }
 
 @media (max-width: 640px) {
