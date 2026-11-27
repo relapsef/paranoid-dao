@@ -345,9 +345,6 @@
     "case1.note": "2 channels, native posts",
     "case2.stats": "$145 · CPL ~$1.2",
     "case2.note": "3 channels: native post + footer mentions",
-    "case3.usersLabel": "channels in media plan",
-    "case3.stats": "$1,375 · CPL —",
-    "case3.note": "campaign in progress",
     "case.hover": "Hover for details",
     "case.tap": "Tap for details",
 
@@ -444,9 +441,6 @@
     "case1.note": "2 канали, нативні пости",
     "case2.stats": "$145 · CPL ~$1,2",
     "case2.note": "3 канали: нативний пост і футери",
-    "case3.usersLabel": "каналів у медіаплані",
-    "case3.stats": "$1 375 · CPL —",
-    "case3.note": "кампанія в роботі",
     "case.hover": "Наведіть для деталей",
     "case.tap": "Торкніться для деталей",
 
@@ -478,11 +472,7 @@
       statsKey: 'case1.stats', noteKey: 'case1.note', glow: '#3a5f9f' },
     { name: 'StarSnow', icon: 'starsnow-new.jpg', url: 'https://t.me/starsnowshop_bot',
       users: '120+', stats: '$145 · CPL ~$1,2', note: '3 канала: нативный пост и футеры',
-      statsKey: 'case2.stats', noteKey: 'case2.note', glow: '#aa8232' },
-    { name: 'Casa Exchange', icon: 'casa.jpg', url: 'https://casa-exchange.com',
-      users: '9', usersLabel: 'каналов в медиаплане', usersKey: 'case3.usersLabel',
-      stats: '$1 375 · CPL —', note: 'кампания в работе',
-      statsKey: 'case3.stats', noteKey: 'case3.note', glow: '#3a8f5f' }
+      statsKey: 'case2.stats', noteKey: 'case2.note', glow: '#aa8232' }
   ];
   (function renderCases() {
     const grid = document.getElementById('casesBento');
@@ -499,7 +489,7 @@
     const l = mk('div', 'bento__side');
     l.append(mk('span', 'bento__num', '190+'), mk('span', 'bento__sub', 'пользователей · цифры обновляются', 'cases.totalLabel'));
     const r = mk('div', 'bento__side bento__side--right');
-    r.append(mk('span', 'bento__num', '$1 640'), mk('span', 'bento__sub', 'общий бюджет', 'cases.totalBudget'));
+    r.append(mk('span', 'bento__num', '$265'), mk('span', 'bento__sub', 'общий бюджет', 'cases.totalBudget'));
     total.append(l, r);
     grid.appendChild(total);
     // Ячейки кейсов
