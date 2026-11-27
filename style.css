@@ -525,6 +525,17 @@ html[data-theme="light"] .planet__spin {
   gap: 48px;
 }
 .about__grid p { font-size: 17px; color: var(--text-dim); }
+.about__netlink-wrap { margin-top: 28px; }
+.about__netlink {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--muted);
+  padding-bottom: 2px;
+  transition: border-color .2s;
+}
+.about__netlink:hover { border-bottom-color: var(--text); }
 
 /* ---------- Services ---------- */
 .services__grid {
